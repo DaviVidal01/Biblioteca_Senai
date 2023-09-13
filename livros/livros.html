@@ -17,6 +17,45 @@
         <title>x-books</title>
     </head>
     <body>
+      <!-- MODAL -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Login Usuário</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input type="email" placeholder="nome@email.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <div class="row">
+                      <div class="col">
+                        <div id="emailHelp" class="form-text">Esqueceu sua senha? <a href="#" style="color:blue;">Clique aqui</a></div>
+                      </div>
+                      <div class="col">
+                        <div id="emailHelp" class="form-text text-end me-1">Não sou registrado. <a href="#" style="color:blue;">Criar conta</a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Lembrar login</label>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"> <img width="24" height="24" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"> Entrar com Google</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Entrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- INICIO DO NAVBAR-->
         <nav class="navbar navbar-light sticky-top navbar-expand-lg p-3 mb-5 shadow rounded" style=background-color:#e3f2fd;>
           <div class="container-fluid mx-3 p-2">
@@ -39,7 +78,7 @@
                       <li><a class="dropdown-item" href="#">Terror</a></li>
                       <li><a class="dropdown-item" href="#">Romance</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Ver mais</a></li>
+                      <li><a class="dropdown-item" href="catalogo.html">Ver mais</a></li>
                     </ul>
                   </li>
                   <form class="d-flex">
@@ -49,7 +88,7 @@
                 </ul>
               </div>
               <div>
-                <button type="button" class="btn btn-outline-primary">
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="darkblue" class="bi bi-person" viewBox="2 1 18 16">
                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
                   </svg>Entrar</button>
