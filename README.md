@@ -25,6 +25,27 @@
             <li><strong>💻┆ luquinha157:</strong> Contribuiu em conjunto com lferodrigues para a construção do Index na parte de FrontEnd.</li>
             <li><strong>🎨┆ GiselliR:</strong> Contribuiu realizando os designs da Logo, Banners e Carrossel do projeto.</li>
         </ul>
+        <h2>● Programas 📚</h2>
+        <table>
+          <tr>
+            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" width="50px" alt="HTML5"/><br/><strong>HTML5</strong></td>
+            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" width="50px" alt="CSS3"/><br/><strong>CSS3</strong></td>
+            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="50px" alt="Python"/><br/><strong>Python</strong></td>
+          </tr>
+        </table>
+        <h2>● Frameworks 🤖</h2>
+        <table>
+          <tr>
+            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" width="50px" alt="BootstrapV5.3"/><br/><strong>Bootstrap<sub>V5.3</sub></strong></td>
+            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width="50px" alt="Django"/><br/><strong>Django</strong></td>
+          </tr>
+        </table>
+        <h2>● Banco de Dados 🗃️</h2>
+        <table>
+          <tr>
+            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" width="100px" alt="MySql"/><br/><strong>MySQL</strong></td>
+          </tr>
+        </table>
         <h2>● Imagens do Projeto 📖</h2>
         <div display="flex">
             <img src="" width="500px">
