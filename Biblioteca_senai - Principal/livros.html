@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <link rel="icon" href="assets/img/azul-X.png" type="image/x-icon">
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
-        <title>Catálogos - X-Books</title>
+        <title>Catálogos | X-Books</title>
     </head>
     <body>
       <!-- MODAL -->
@@ -63,11 +63,23 @@
             width="130" height="34"></a>
         </div>
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="livros.html" class="nav-link px-2 link-secondary">Catálogos</a></li>
-          <li><a href="#destaque" class="nav-link px-2">Destaque</a></li>
-          <li><a href="#suporte" class="nav-link px-2">Suporte</a></li>
-          <li><a href="#" class="nav-link px-2">FAQs</a></li>
-          <li><a href="#sobre" class="nav-link px-2">Sobre</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categorias
+            </a>
+            <ul class="dropdown-menu" style=background-color:#e3f2fd; aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Drama</a></li>
+              <li><a class="dropdown-item" href="#">Ficção</a></li>
+              <li><a class="dropdown-item" href="#">Terror</a></li>
+              <li><a class="dropdown-item" href="#">Romance</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="catalogo.html">Ver mais</a></li>
+            </ul>
+          </li>
+          <li><form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Procurar livro" aria-label="Search">
+            <button type="button" class="btn btn-info">Pesquisar</button>
+          </form></li>
         </ul>
         <div class="col-md-3 text-end">
           <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -76,71 +88,35 @@
             </svg>Entrar</button>
         </div>
       </header>
-      <!-- INICIO DO NAVBAR-->
-      <nav class="navbar navbar-light sticky-top navbar-expand-lg p-3 mb-5 shadow rounded" style=background-color:#e3f2fd;>
-        <div class="container-fluid mx-3 p-2">
-          <a href="../index.html"><img src="../assets/img/logo.png" alt="Logo" width="130" height="34" class="d-inline-block align-text-top"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav position-absolute top-50 start-50 translate-middle me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Página Inicial</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categorias
-                  </a>
-                  <ul class="dropdown-menu" style=background-color:#e3f2fd; aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Drama</a></li>
-                    <li><a class="dropdown-item" href="#">Ficção</a></li>
-                    <li><a class="dropdown-item" href="#">Terror</a></li>
-                    <li><a class="dropdown-item" href="#">Romance</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="catalogo.html">Ver mais</a></li>
-                  </ul>
-                </li>
-                <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Procurar livro" aria-label="Search">
-                  <button type="button" class="btn btn-info">Pesquisar</button>
-                </form>
-              </ul>
-            </div>
-            <div>
-              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="darkblue" class="bi bi-person" viewBox="2 1 18 16">
-                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-                </svg>Entrar</button>
-            </div>
-        </div>
-      </nav>
         <!-- FIM DO NAVBAR -->
 
         <!-- INICIO DO CARROSSEL DEMONSTRATIVO -->
-      <div class="container-fluid mb-0">
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner shadow-sm p-3 mb-5 bg-body-tertiary rounded">
-                <div class="carousel-item active c-item">
-                  <img src="https://images.pexels.com/photos/775998/pexels-photo-775998.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100 c-img" alt="...">
-                </div>
-                <div class="carousel-item c-item">
-                  <img src="https://images.pexels.com/photos/2943603/pexels-photo-2943603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100 c-img" alt="...">
-                </div>
-                <div class="carousel-item c-item">
-                  <img src="https://images.pexels.com/photos/1887609/pexels-photo-1887609.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100 c-img" alt="...">
-                </div>
-              </div>
+        <div id="Carousel" class="carousel slide mb-6" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#Carousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#Carousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+            <button type="button" data-bs-target="#Carousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
           </div>
-          <button class="carousel-control-prev pb-5" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="bd-placeholder-img d-block w-100" src="assets/img/banner.png" alt="Banner1">
+            </div>
+            <div class="carousel-item">
+              <img class="bd-placeholder-img d-block w-100" src="assets/img/banner3.png" alt="Banner2">
+            </div>
+            <div class="carousel-item">
+              <img class="bd-placeholder-img d-block w-100" src="assets/img/banner2.png" alt="Banner3">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#Carousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="visually-hidden">Anterior</span>
           </button>
-          <button class="carousel-control-next pb-5" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+          <button class="carousel-control-next" type="button" data-bs-target="#Carousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="visually-hidden">Próximo</span>
           </button>
-      </div>
+        </div>
       <!-- CARROSSEL DE DESTAQUES -->
       <div class="container">
         <h1 class="text-center fw-bold mb-4">Destaques</h1>
