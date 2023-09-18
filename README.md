@@ -47,10 +47,12 @@
           </tr>
         </table>
         <h2>● Imagens do Projeto 📖</h2>
-        <div display="flex">
-            <img src="" width="500px">
-            <img src="" width="500px">
-            <img src="" width="500px">
+        <div style="justify-content:center;" align="center">
+            <img src="assets-README/image1.png" alt="Imagem1" width="500px">
+            <br>
+            <img src="assets-README/image2.png" alt="Imagem2" width="500px">
+<br>
+            <img src="assets-README/image3.png" alt="Imagem3" width="500px">
         </div>
     </body>
 </html>
