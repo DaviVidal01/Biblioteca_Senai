@@ -105,12 +105,6 @@ sidebar .logo-name .logo_name{
     transition: var(--tran-05);
 }
 
-$position-values: (
-  0: 0,
-  50: 50%,
-  100: 100%
-);
-
 sidebar.close .logo_name{
     opacity: 0;
     pointer-events: none;
@@ -374,7 +368,7 @@ sidebar.close ~ .dashboard .top{
         overflow-X: scroll;
     }
 }
-@media (max-width: 780px) {
+@media (max-width: 720px) {
     .dash-content .boxes .box{
         width: calc(100% / 2 - 15px);
         margin-top: 15px;
@@ -457,7 +451,7 @@ sidebar.close ~ .dashboard .top{
     <sidebar >
         <div class="logo-name">
             <div class="logo-image">
-               <img src="images/logo.png" alt="">
+               <img src="../images/logo.png" alt="">
             </div>
             <span class="logo_name">X-Books</span>
         </div>
@@ -469,26 +463,21 @@ sidebar.close ~ .dashboard .top{
                 </a></li>
                 <li><a href="#">
                     <i class="uil uil-files-landscapes"></i>
-                    <span class="link-name">Content</span>
+                    <span class="link-name">Pagina Inicial</span>
                 </a></li>
                 <li><a href="#">
                     <i class="uil uil-chart"></i>
-                    <span class="link-name">Analytics</span>
+                    <span class="link-name">Livros Recentes</span>
                 </a></li>
                 <li><a href="#">
                     <i class="uil uil-thumbs-up"></i>
-                    <span class="link-name">Like</span>
+                    <span class="link-name">Livros Devolvidos</span>
                 </a></li>
                 <li><a href="#">
                     <i class="uil uil-comments"></i>
-                    <span class="link-name">Comment</span>
+                    <span class="link-name">Livros Alugados</span>
                 </a></li>
-                <li><a href="#">
-                    <i class="uil uil-share"></i>
-                    <span class="link-name">Share</span>
-                </a></li>
-            </ul>
-            
+            </ul>  
             <ul class="logout-mode">
                 <li><a href="#">
                     <i class="uil uil-signout"></i>
@@ -512,17 +501,17 @@ sidebar.close ~ .dashboard .top{
                 <div class="boxes">
                     <div class="box box1">
                         <i class="uil uil-thumbs-up"></i>
-                        <span class="text">Total Likes</span>
+                        <span class="text">Livros Alugados</span>
                         <span class="number">50,120</span>
                     </div>
                     <div class="box box2">
                         <i class="uil uil-comments"></i>
-                        <span class="text">Comments</span>
+                        <span class="text">Recentes</span>
                         <span class="number">20,120</span>
                     </div>
                     <div class="box box3">
                         <i class="uil uil-share"></i>
-                        <span class="text">Total Share</span>
+                        <span class="text">Livros Devolvidos</span>
                         <span class="number">10,120</span>
                     </div>
                 </div>
