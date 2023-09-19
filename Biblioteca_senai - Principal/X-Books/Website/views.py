@@ -1,9 +1,10 @@
 from django.shortcuts import render
-
+from .models import *
 # Create your views here.
 
 def index(request):
-    return render(request,"index.html")
+    all_news = NewProdutos.objects.all()
+    return render(request,"index.html",  {'news': all_news})
     
 def livros(request):
     return render(request,"livros.html")
