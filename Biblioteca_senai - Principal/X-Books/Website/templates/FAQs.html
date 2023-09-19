@@ -1,16 +1,7 @@
+{% extends 'layout/layout1.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/xbooks.css">
-    <script src="assets/js/bootstrap.bundle.js"></script>
-    <link rel="icon" href="assets/img/azul-X.png" type="image/x-icon">
-    <title>FAQs | X-Books</title>
-  </head>
-  <body>
+{% block content %}
+
     <!-- MODAL -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
       <div class="modal-dialog">
@@ -136,5 +127,4 @@
         </div>
       </footer>
     </div>
-  </body>
-</html>
+{% endblock %}
