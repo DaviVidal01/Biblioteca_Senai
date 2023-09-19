@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -56,6 +57,13 @@
           </div>
         </div>
       </div>
+=======
+{% extends 'layout/layout2.html' %}
+{% load static %}
+{% block content %}
+
+  {% include 'partials/modal.html' %} 
+>>>>>>> 095ff9650e45634dff6112c60139594d7b38274b
       <!--NAVBAR-->
       <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between px-4 py-3 border-bottom bg-dark">
         <div class="col-md-3 mb-2 mb-md-0">
@@ -204,6 +212,7 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
       <!--Footer-->
       <div id="suporte" class="px-4 text-light bg-dark">
         <footer class="py-5">
@@ -251,6 +260,9 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <!-- Javascript para Owl Carousel -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+=======
+      {% include 'partials/footer.html' %}
+>>>>>>> 095ff9650e45634dff6112c60139594d7b38274b
       <script>
         $('.owl-carousel').owlCarousel({
             loop:true,
@@ -271,5 +283,4 @@
             }
           })
       </script>
-    </body>
-</html>
+{% endblock %}

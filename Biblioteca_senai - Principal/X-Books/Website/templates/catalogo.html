@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+{% extends 'layout/layout2.html' %}
+{% load static %}
+{% block content %}
 
+<<<<<<< HEAD
         <!-- CSS -->
         <link rel="stylesheet" href="/Biblioteca_senai - Principal/X-Books/static/assets/css/style.css">
         <link rel="icon" href="/Biblioteca_senai - Principal/X-Books/static/assets/img/azul-X.png" type="image/x-icon">
@@ -49,6 +46,9 @@
       </div>
     </header>
     <!-- FIM NAVBAR --> 
+=======
+ {% include 'partials/navbar2.html' %}
+>>>>>>> 095ff9650e45634dff6112c60139594d7b38274b
     <!-- LIVROS -->
     <div class="container py-5">
       <div class="row align-items-start py-1">
@@ -163,6 +163,7 @@
             </ul>
         </nav>
     </div>
+<<<<<<< HEAD
     <!--Footer-->
     <div id="suporte" class="px-4 text-light bg-dark">
       <footer class="py-5">
@@ -215,3 +216,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>               
     </body>
 </html>
+=======
+    {% include 'partials/footer.html' %}
+{% endblock %}
+>>>>>>> 095ff9650e45634dff6112c60139594d7b38274b
