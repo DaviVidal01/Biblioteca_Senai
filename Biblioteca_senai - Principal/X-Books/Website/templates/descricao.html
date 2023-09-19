@@ -2,51 +2,7 @@
 {% load static %}
 {% block content %}
 
-    <!-- NAVBAR -->
-        <nav class="navbar navbar-light sticky-top navbar-expand-lg p-3 mb-5 shadow rounded" style=background-color:#e3f2fd;>
-            <div class="container-fluid mx-3 p-2">
-            <a href="../index.html"><img src="../assets/img/logo.png" alt="Logo" width="130" height="34" class="d-inline-block align-text-top"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav position-absolute top-50 start-50 translate-middle me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="livros.html">Página Inicial</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="catalogo.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorias
-                    </a>
-                    <ul class="dropdown-menu" style=background-color:#e3f2fd; aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Drama</a></li>
-                        <li><a class="dropdown-item" href="#">Ficção</a></li>
-                        <li><a class="dropdown-item" href="#">Terror</a></li>
-                        <li><a class="dropdown-item" href="#">Romance</a></li>
-                        <li><a class="dropdown-item" href="#">Biografia</a></li>
-                        <li><a class="dropdown-item" href="#">Poesia</a></li>
-                        <li><a class="dropdown-item" href="#">Autoajuda</a></li>
-                        <li><a class="dropdown-item" href="#">Acadêmico</a></li>
-                        <li><a class="dropdown-item" href="#">Científico</a></li>
-                        <li><a class="dropdown-item" href="#">Conto</a></li>
-                        <li><a class="dropdown-item" href="#">HQ</a></li>
-                    </ul>
-                    </li>
-                    <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Procurar livro" aria-label="Search">
-                    <button type="button" class="btn btn-info">Pesquisar</button>
-                    </form>
-                </ul>
-                </div>
-                <div>
-                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person" viewBox="2 1 18 16">
-                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-                    </svg>Conta</button>
-                </div>
-            </div>
-        </nav>
-        <!-- FIM NAVBAR --> 
+    {% include 'partials/navbar1.html' %}
         <!-- DESCRIÇAO DO ITEM -->
         <div class="container py-5">
             <div class="row">
@@ -67,5 +23,5 @@
                 </div>
             </div>
         </div>
-
+    {% include 'partials/footer.html' %}
 {% endblock %}

@@ -2,43 +2,7 @@
 {% load static %}
 {% block content %}
 
-    <!-- NAVBAR -->
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between px-4 py-3 border-bottom bg-dark">
-      <div class="col-md-3 mb-2 mb-md-0">
-        <a class="navbar-brand" href="index.html"><img class="w3-image w3-round-large" src="assets/img/logo2.png" alt="Home"
-          width="130" height="34"></a>
-      </div>
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categorias
-          </a>
-          <ul class="dropdown-menu" style=background-color:#e3f2fd; aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Drama</a></li>
-            <li><a class="dropdown-item" href="#">Ficção</a></li>
-            <li><a class="dropdown-item" href="#">Terror</a></li>
-            <li><a class="dropdown-item" href="#">Romance</a></li>
-            <li><a class="dropdown-item" href="#">Biografia</a></li>
-            <li><a class="dropdown-item" href="#">Poesia</a></li>
-            <li><a class="dropdown-item" href="#">Autoajuda</a></li>
-            <li><a class="dropdown-item" href="#">Acadêmico</a></li>
-            <li><a class="dropdown-item" href="#">Científico</a></li>
-            <li><a class="dropdown-item" href="#">Conto</a></li>
-            <li><a class="dropdown-item" href="#">HQ</a></li>
-          </ul>
-        </li>
-        <li><form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Procurar livro" aria-label="Search">
-          <button type="button" class="btn btn-info">Pesquisar</button>
-        </form></li>
-      </ul>
-      <div class="col-md-3 text-end">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-person" viewBox="2 1 18 16">
-            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-          </svg>
-      </div>
-    </header>
-    <!-- FIM NAVBAR --> 
+ {% include 'partials/navbar2.html' %}
     <!-- LIVROS -->
     <div class="container py-5">
       <div class="row align-items-start py-1">
@@ -153,49 +117,5 @@
             </ul>
         </nav>
     </div>
-    <!--Footer-->
-    <div id="suporte" class="px-4 text-light bg-dark">
-      <footer class="py-5">
-        <div class="row d-flex justify-content-center">
-
-          <div class="col-6 col-md-2 mb-3">
-            <br>
-            <a class="navbar-brand" href="#"><img class="w3-image w3-round-large" src="assets/img/logo2.png" alt="Home"
-              width="70%"></a>
-          </div>
-
-          <div class="col-6 col-md-2 mb-3">
-            <h5>Navegação</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="livros.html" class="nav-link p-0 ">Catálogos</a></li>
-              <li class="nav-item mb-2"><a href="index.html#destaque" class="nav-link p-0 ">Destaque</a></li>
-              <li class="nav-item mb-2"><a href="FAQs.html" class="nav-link p-0 ">FAQs</a></li>
-              <li class="nav-item mb-2"><a href="index.html#sobre" class="nav-link p-0 ">Sobre</a></li>
-              <li class="nav-item mb-2">Gmail: xbooks@gmail.com</li>
-              <li class="nav-item mb-2">Contato: 4002-8922</li>
-            </ul>
-          </div>
-    
-          <div class="col-md-5 offset-md-1 mb-3">
-            <form>
-              <h5>Entre em contato conosco</h5>
-              <p>Envie sugestões ou feedbacks sobre livros ou bugs.</p>
-              <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                <label for="newsletter1" class="visually-hidden">FeedBack</label>
-                <input id="newsletter1" type="text" class="form-control" placeholder="FeedBack">
-                <button class="btn btn-primary" type="button">Enviar</button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-          <p>© 2023 X-Books, Inc. Todos direitos reservados.</p>
-          <ul class="list-unstyled d-flex">
-            <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-            <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-            <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-          </ul>
-        </div>
-      </footer>
-    </div>
+    {% include 'partials/footer.html' %}
 {% endblock %}
