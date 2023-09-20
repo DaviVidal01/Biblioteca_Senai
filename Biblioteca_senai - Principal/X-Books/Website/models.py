@@ -1,23 +1,41 @@
 from django.db import models
-
+from django.utils import datetime
 # Create your models here.
-NEWES = (
-    ('1', 'None'),
-    ('2', 'New')
+STATUS = (
+    ('1', 'Disponível'),
+    ('2', 'Alugado')
 )
-DESC = (
-    ('1', 'None'),
-    ('2', '-10%'),
-    ('3', '-30%'),
+FICHA = (
+    ('1','Limpa'),
+    ('2','Punição')
+)
+STATUS2 = (
+    ('1','Pendente'),
+    ('2','Atrasado'),
+    ('3','Entregue')
 )
 
-class NewProdutos(models.Model):
-    title = models.CharField(default='', max_length= 30)
+
+class Livros(models.Model):
+    titulo = models.CharField(default='', max_length= 30)
+    autor = models.CharField(default='', max_length= 30)
     image = models.ImageField(upload_to= './images')
-    precoD = models.DecimalField(default=000.00, max_digits=5, decimal_places=2)
-    precoA = models.DecimalField(default=000.00, max_digits=5, decimal_places=2)
-    new = models.CharField(max_length = 20, choices = NEWES, default = '1')
-    desconto = models.CharField(max_length = 20, choices = DESC, default = '1')
+    genero = models.CharField(max_length= 20, choices=,  default ='1') 
+    status = models.CharField(max_length = 20, choices = STATUS, default = '1')
+
+class Usuario(models.Model):
+    titulo = models.CharField(default='', max_length= 30)
+    email = models.EmailField(default='', max_length= 40)
+    cpf = models.CharField(default='', max_length= 11)
+    telefone = models.IntegerField(default='', max_digits= 14)
+    senha = models.CharField(default='', max_length= 40)
+    endereco = models.TextField(default='', max_length=255)
+    ficha = models.CharField(max_length= 20, choices= FICHA, default='1')
 
 class Categorias(models.Model):
-    nome = models.CharField(default='', max_length= 30)
+    titulo = models.CharField(default='', max_length= 30)
+
+class Registro(models.Model):
+    data_Ret = models.DateTimeField(default=datetime.datetime.now())
+    data_Dev = models.DateTimeField(default=datetime.datetime.now())
+    status = models.CharField(max_length=20, choices= STATUS2, default= '1')
