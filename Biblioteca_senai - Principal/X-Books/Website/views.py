@@ -20,8 +20,10 @@ def catalogo2(request):
 def FAQs(request):
     return render(request,"FAQs.html")
 
-def admin(request):
-    return render(request,"admin.html")
+def funcionario(request):
+    usuarios = Usuario.objects.all()
+    livros = Livros.objects.all()
+    return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
 
 def descricao(request):
     usuarios = Usuario.objects.all()
