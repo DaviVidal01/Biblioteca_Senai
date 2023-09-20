@@ -25,6 +25,21 @@ def funcionario(request):
     livros = Livros.objects.all()
     return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
 
+def funcionario(request):
+    usuarios = Usuario.objects.all()
+    livros = Livros.objects.all()
+    return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
+    
+def funcionario(request):
+    usuarios = Usuario.objects.all()
+    livros = Livros.objects.all()
+    return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
+    
+def funcionario(request):
+    usuarios = Usuario.objects.all()
+    livros = Livros.objects.all()
+    return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
+
 def descricao(request):
     usuarios = Usuario.objects.all()
     return render(request,"descricao.html", {'usuarios': usuarios})
