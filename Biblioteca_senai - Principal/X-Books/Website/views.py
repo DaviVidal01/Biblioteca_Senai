@@ -47,3 +47,7 @@ def descricao(request):
 def cadastro(request):
     usuarios = Usuario.objects.all()
     return render(request,"cadastro.html", {'usuarios': usuarios})
+    
+def cadastro_usuarios(request):
+    usuarios = Usuario.objects.all()
+    return render(request,"cadastrar_usuario.html", {'usuarios': usuarios})    
