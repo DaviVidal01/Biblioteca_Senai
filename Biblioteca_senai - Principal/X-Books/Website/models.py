@@ -20,14 +20,14 @@ class Livros(models.Model):
     titulo = models.CharField(default='', max_length= 30)
     autor = models.CharField(default='', max_length= 30)
     image = models.ImageField(upload_to= './images')
-    genero = models.CharField(max_length= 20, choices=,  default ='1') 
+    genero = models.CharField(max_length= 20, choices='',  default ='1') 
     status = models.CharField(max_length = 20, choices = STATUS, default = '1')
 
 class Usuario(models.Model):
     titulo = models.CharField(default='', max_length= 30)
     email = models.EmailField(default='', max_length= 40)
     cpf = models.CharField(default='', max_length= 11)
-    telefone = models.IntegerField(default='', max_digits= 14)
+    telefone = models.CharField(default='', max_digits= 14)
     senha = models.CharField(default='', max_length= 40)
     endereco = models.TextField(default='', max_length=255)
     ficha = models.CharField(max_length= 20, choices= FICHA, default='1')
