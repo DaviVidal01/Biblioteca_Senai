@@ -11,5 +11,12 @@ urlpatterns =[
     path('funcionario2/', views.funcionario2, name="funcionario2"),
     path('funcionario3/', views.funcionario3, name="funcionario3"),
     path('FAQs/', views.FAQs, name="FAQs"),
-    path('descricao/', views.descricao, name="descricao")
+    path('descricao/', views.descricao, name="descricao"),
+    path('cadastro/', views.cadastro, name="cadastro"),
+    path('cadastro_user/', views.cadastro_usuarios, name="cadastro"),
+    path('cadastro_book/', views.cadastro_book, name="cadastro"),
+    path('consulta_book/', views.consulta_book, name="cadastro"),
+    path('consulta_user/', views.consulta_user, name="cadastro"),
+    
+
 ]
