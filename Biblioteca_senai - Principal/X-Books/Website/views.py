@@ -47,7 +47,19 @@ def descricao(request):
 def cadastro(request):
     usuarios = Usuario.objects.all()
     return render(request,"cadastro.html", {'usuarios': usuarios})
-    
+
 def cadastro_usuarios(request):
     usuarios = Usuario.objects.all()
-    return render(request,"cadastrar_usuario.html", {'usuarios': usuarios})    
+    return render(request,"cadastrar_usuario.html", {'usuarios': usuarios})   
+
+def cadastro_book(request):
+    usuarios = Usuario.objects.all()
+    return render(request,"cadastrar_livros.html", {'usuarios': usuarios})   
+
+def consulta_book(request):
+    usuarios = Usuario.objects.all()
+    return render(request,"consulta_livros.html", {'usuarios': usuarios}) 
+    
+def consulta_user(request):
+    usuarios = Usuario.objects.all()
+    return render(request,"consulta_usuario.html", {'usuarios': usuarios})           
