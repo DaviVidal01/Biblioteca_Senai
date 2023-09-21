@@ -11,5 +11,6 @@ urlpatterns =[
     path('funcionario2/', views.funcionario2, name="funcionario2"),
     path('funcionario3/', views.funcionario3, name="funcionario3"),
     path('FAQs/', views.FAQs, name="FAQs"),
-    path('descricao/', views.descricao, name="descricao")
+    path('descricao/', views.descricao, name="descricao"),
+    path('cadastro/', views.cadastro, name="cadastro")
 ]

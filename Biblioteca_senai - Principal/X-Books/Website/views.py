@@ -43,3 +43,7 @@ def funcionario3(request):
 def descricao(request):
     usuarios = Usuario.objects.all()
     return render(request,"descricao.html", {'usuarios': usuarios})
+
+def cadastro(request):
+    usuarios = Usuario.objects.all()
+    return render(request,"cadastro.html", {'usuarios': usuarios})
