@@ -3,44 +3,7 @@
 {% block content %}
     {% include 'partials/navbar3.html' %}
         
-    <sidebar >
-        <div class="logo-name">
-            <div class="logo-image">
-               <img src="../images/logo.png" alt="">
-            </div>
-            <span class="logo_name">X-Books</span>
-        </div>
-        <div class="menu-items">
-            <ul class="nav-links">
-                <li><a href="#">
-                    <i class="uil uil-estate"></i>
-                    <span class="link-name">Livros Disponiveis</span>
-                </a></li>
-                <li><a href="#">
-                    <i class="uil uil-files-landscapes"></i>
-                    <span class="link-name"><a class="page-link" href="admin.html">Pagina Inicial</a></span>
-                </a></li>
-                <li><a href="#">
-                    <i class="uil uil-chart"></i>
-                    <span class="link-name"><a class="page-link" href="admin1.html">Livros Disponiveis</a></span>
-                </a></li>
-                <li><a href="#">
-                    <i class="uil uil-thumbs-up"></i>
-                    <span class="link-name"><a class="page-link" href="admin2.html">Livros Devolvidos</a></span>
-                </a></li>
-                <li><a href="#">
-                    <i class="uil uil-comments"></i>
-                    <span class="link-name"><a class="page-link" href="admin3.html">Livros Alugados</a></span>
-                </a></li>
-            </ul>  
-            <ul class="logout-mode">
-                <li><a href="#">
-                    <i class="uil uil-signout"></i>
-                    <span class="link-name">Loggout</span>
-                </a></li>
-            </ul>
-        </div>
-    </sidebar>
+    {% include 'partials/sidebar.html' %}
     
     <section class="dashboard">
         <div class="top">

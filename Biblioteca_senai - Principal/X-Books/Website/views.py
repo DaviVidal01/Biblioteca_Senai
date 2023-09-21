@@ -25,17 +25,17 @@ def funcionario(request):
     livros = Livros.objects.all()
     return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
 
-def funcionario(request):
+def funcionario1(request):
     usuarios = Usuario.objects.all()
     livros = Livros.objects.all()
     return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
     
-def funcionario(request):
+def funcionario2(request):
     usuarios = Usuario.objects.all()
     livros = Livros.objects.all()
     return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
-    
-def funcionario(request):
+
+def funcionario3(request):
     usuarios = Usuario.objects.all()
     livros = Livros.objects.all()
     return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
