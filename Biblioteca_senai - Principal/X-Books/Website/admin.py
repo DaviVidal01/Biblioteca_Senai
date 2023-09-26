@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Registro)
 admin.site.register(Usuario)
 admin.site.register(Livros)
+admin.site.register(Genero)
