@@ -21,13 +21,16 @@
         </div>
         <div class="col-md-5 offset-md-1 mb-3">
           <form>
+            {% csrf_token %}
             <h5>Entre em contato conosco</h5>
             <p>Envie sugestões ou feedbacks sobre livros ou bugs.</p>
+            {% for field in form.visible_fields %}
             <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-              <label for="newsletter1" class="visually-hidden">FeedBack</label>
-              <input id="newsletter1" type="text" class="form-control" placeholder="FeedBack">
+              <label for="{{field.id_for_label}}" class="visually-hidden">{{field.label}}</label>
+              {{field}}
               <button class="btn btn-primary" type="button">Enviar</button>
             </div>
+            {% endfor %}
           </form>
         </div>
       </div>
@@ -36,7 +39,7 @@
         <ul class="list-unstyled d-flex">
           <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
           <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" ><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
         </ul>
       </div>
     </footer>

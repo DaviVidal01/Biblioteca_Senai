@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from .models import *
-# Create your views here.
+from Website.forms import Loginemail, Loginsenha
 
+# Create your views here.
 def index(request):
-    return render(request,"index.html")
+    form_email = Loginemail,
+    form_senha = Loginsenha
+    return render(request,"index.html", {"form": form_email,"form": form_senha})
     
 def livros(request):
     livros = Livros.objects.all()
@@ -63,3 +66,4 @@ def consulta_book(request):
 def consulta_user(request):
     usuarios = Usuario.objects.all()
     return render(request,"consulta_usuario.html", {'usuarios': usuarios})           
+
