@@ -1,27 +1,33 @@
 from django.shortcuts import render
 from .models import *
-from Website.forms import Loginemail, Loginsenha
+from Website.forms import LoginEmail, Feedback
 
 # Create your views here.
 def index(request):
-    form_email = Loginemail,
-    form_senha = Loginsenha
-    return render(request,"index.html", {"form": form_email,"form": form_senha})
+    form_email = LoginEmail()
+    form_feedback = Feedback()
+    return render(request,"index.html", {"form": form_email, "formF": form_feedback})
     
 def livros(request):
     livros = Livros.objects.all()
-    return render(request,"livros.html", {'livros': livros})
+    form_feedback = Feedback
+    return render(request,"livros.html", {'livros': livros, "formF": form_feedback})
 
 def catalogo(request):
     livros = Livros.objects.all()
-    return render(request,"catalogo.html", {'livros': livros})
+    form_feedback = Feedback
+    return render(request,"catalogo.html", {'livros': livros, "formF": form_feedback})
 
 def catalogo2(request):
     livros = Livros.objects.all()
-    return render(request,"catalogo-2.html", {'livros': livros})
+    form_feedback = Feedback
+    return render(request,"catalogo-2.html", {'livros': livros, "formF": form_feedback})
 
 def FAQs(request):
-    return render(request,"FAQs.html")
+    form_email = LoginEmail,
+    form_senha = LoginSenha,
+    form_feedback = Feedback
+    return render(request,"FAQs.html", {"formE": form_email,"formS": form_senha, "formF": form_feedback})
 
 def funcionario(request):
     usuarios = Usuario.objects.all()

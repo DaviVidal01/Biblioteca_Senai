@@ -9,13 +9,14 @@
         </div>
         <div class="modal-body">
           <form>
+            {% csrf_token %}
+            {% for fiel in form.visible_fields %}
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email</label>
-              <input type="email" placeholder="nome@email.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <label for="{{fiel.id_for_label}}" class="form-label">{{fiel.label}}</label>
+              {{fiel}}
             </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Senha</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+            {% endfor %}
+              <div class="mb-3">
               <div class="row">
                 <div class="col">
                   <div id="emailHelp" class="form-text">Esqueceu sua senha? <a href="#" style="color:blue;">Clique aqui</a></div>
@@ -29,12 +30,13 @@
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Lembrar login</label>
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"> <img width="24" height="24" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"> Entrar com Google</button>
+              <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Entrar</button>
+            </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"> <img width="24" height="24" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"> Entrar com Google</button>
-          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Entrar</button>
-        </div>
+       </div>
       </div>
     </div>
   </div>
