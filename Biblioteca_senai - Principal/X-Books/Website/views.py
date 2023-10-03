@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from Website.forms import LoginEmail, Feedback
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -72,4 +73,21 @@ def consulta_book(request):
 def consulta_user(request):
     usuarios = Usuario.objects.all()
     return render(request,"consulta_usuario.html", {'usuarios': usuarios})           
+
+def faq(request):
+    return render(request,"FAQs.html") 
+
+def login(request):
+    if request.method == 'POST':
+        form = LoginEmail(request.POST)
+
+    if form.is_valid():
+        email = form['email_message'].value()
+        password = form['senha_message'].value()
+        messages.success(request, f'{email} logado com sucesso!')
+        return redirect('index')
+    else:
+        messages.error(request, f' erro ao realizar o login!')
+        return redirect('index')
+    
 
