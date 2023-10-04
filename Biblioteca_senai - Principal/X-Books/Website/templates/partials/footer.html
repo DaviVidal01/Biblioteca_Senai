@@ -20,7 +20,7 @@
           </ul>
         </div>
         <div class="col-md-5 offset-md-1 mb-3">
-          <form>
+          <form action = "{% url 'nov' %}" method = "POST">
             {% csrf_token %}
             <h5>Entre em contato conosco</h5>
             <p>Envie sugestões ou feedbacks sobre livros ou bugs.</p>
@@ -28,7 +28,7 @@
             <div class="d-flex flex-column flex-sm-row w-100 gap-2">
               <label for="{{field.id_for_label}}" class="visually-hidden">{{field.label}}</label>
               {{field}}
-              <button class="btn btn-primary" type="button">Enviar</button>
+              <button class="btn btn-primary" type="submit">Enviar</button>
             </div>
             {% endfor %}
           </form>

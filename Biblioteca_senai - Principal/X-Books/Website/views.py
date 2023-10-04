@@ -7,7 +7,10 @@ from django.contrib import messages
 def index(request):
     form_email = LoginEmail()
     form_feedback = Feedback()
-    return render(request,"index.html", {"form": form_email, "formF": form_feedback})
+    return render(request,"index.html", {
+        "form": form_email, 
+        "formF": form_feedback,
+        })
     
 def livros(request):
     livros = Livros.objects.all()
@@ -84,10 +87,25 @@ def login(request):
     if form.is_valid():
         email = form['email_message'].value()
         password = form['senha_message'].value()
-        messages.success(request, f'{email} logado com sucesso!')
+        messages.success(request, f'{email_message} logado com sucesso!')
         return redirect('index')
     else:
         messages.error(request, f' erro ao realizar o login!')
         return redirect('index')
+
+def nov(request):
+    if request.method == "POST":
+        bd = Genero(nome=request.POST['feedback_message'])
+        bd.save()
+        messages.success(request, f'email cadastrado com sucesso!')
+        return redirect('index')
+
+def delete(request, id):
+    x = xbooks.objects.get(pk=id)
+    x.delete()
+    messages.error(request, f'email deletado com sucesso!')
+    return redirect('index')
+
+
     
 

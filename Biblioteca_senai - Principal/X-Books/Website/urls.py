@@ -18,4 +18,7 @@ urlpatterns =[
     path('consulta_book/', views.consulta_book, name="cadastro"),
     path('consulta_user/', views.consulta_user, name="cadastro"),
     path('login', views.login, name="login"),
+    path('deletar/<int:id>', views.delete, name="delete"),
+    path('nov/', views.nov, name="nov")
+
 ]
