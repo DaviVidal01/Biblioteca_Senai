@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
-from Website.forms import LoginEmail, Feedback
+from Website.forms import LoginEmail, Feedback, CadastrarLivros, CadastrarUsuario
 from django.contrib import messages
 
 # Create your views here.
@@ -85,19 +85,19 @@ def login(request):
         form = LoginEmail(request.POST)
 
     if form.is_valid():
-        email = form['email_message'].value()
-        password = form['senha_message'].value()
-        messages.success(request, f'{email_message} logado com sucesso!')
+        email = form['email_form'].value()
+        password = form['senha_form'].value()
+        messages.success(request, f'email logado com sucesso!')
         return redirect('index')
     else:
         messages.error(request, f' erro ao realizar o login!')
         return redirect('index')
 
-def nov(request):
+def feedback(request):
     if request.method == "POST":
-        bd = Genero(nome=request.POST['feedback_message'])
+        bd = Genero(nome=request.POST['feedback_form'])
         bd.save()
-        messages.success(request, f'email cadastrado com sucesso!')
+        messages.success(request, f'feedback enviado com sucesso!')
         return redirect('index')
 
 def delete(request, id):
@@ -106,6 +106,36 @@ def delete(request, id):
     messages.error(request, f'email deletado com sucesso!')
     return redirect('index')
 
+def cadastrarU(request):
+    if request.method == 'POST':
+        form = CadastrarUsuario(request.POST)
 
-    
+    if form.is_valid():
+        nome = form['nome_form'].value()
+        cpf = form['cpf_form'].value()
+        endereco = form['endereco_form'].value()
+        telefone = form['telefone_form'].value()
+        email = form['email_form'].value()
+        password = form['senha_form'].value()
+        passwordC = form['senhaconfirmar_form'].value()
+        messages.success(request, f'Usuário cadastrado com sucesso!')
+        return redirect('cadastrar_usuarios')
+    else:
+        messages.error(request, f'Erro ao realizar o login!')
+        return redirect('cadastrar_usuarios')
 
+def cadastrarL(request):
+    if request.method == 'POST':
+        form = CadastrarLivros(request.POST)
+
+    if form.is_valid():
+        titulo = form['titulo_form'].value()
+        autor = form['autor_form'].value()
+        genero = form['genero_form'].value()
+        ano = form['ano_form'].value()
+        capa = form['capa_form'].value()
+        messages.success(request, f'Livro registrado com sucesso!')
+        return redirect('cadastrar_livros')
+    else:
+        messages.error(request, f'Erro ao realizar o login!')
+        return redirect('cadastrar_livros')
