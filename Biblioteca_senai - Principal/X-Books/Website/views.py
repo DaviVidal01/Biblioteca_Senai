@@ -5,11 +5,13 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
+    feedback = Feedback.objects.all()
     form_email = LoginEmail()
     form_feedback = Feedback()
     return render(request,"index.html", {
         "form": form_email, 
         "formF": form_feedback,
+        "feedback": feedback
         })
     
 def livros(request):
@@ -63,7 +65,8 @@ def cadastro(request):
 
 def cadastro_usuarios(request):
     usuarios = Usuario.objects.all()
-    return render(request,"cadastrar_usuario.html", {'usuarios': usuarios})   
+    form_User = CadastrarUsuario() 
+    return render(request,"cadastrar_usuario.html", {'usuarios':usuarios,"form_User": form_User })
 
 def cadastro_book(request):
     usuarios = Usuario.objects.all()
@@ -87,7 +90,7 @@ def login(request):
     if form.is_valid():
         email = form['email_form'].value()
         password = form['senha_form'].value()
-        messages.success(request, f'email logado com sucesso!')
+        messages.success(request, f'Cadastrar com sucesso!')
         return redirect('index')
     else:
         messages.error(request, f' erro ao realizar o login!')
@@ -108,21 +111,21 @@ def delete(request, id):
 
 def cadastrarU(request):
     if request.method == 'POST':
-        form = CadastrarUsuario(request.POST)
+        form_User = CadastrarUsuario(request.POST)
 
-    if form.is_valid():
-        nome = form['nome_form'].value()
-        cpf = form['cpf_form'].value()
-        endereco = form['endereco_form'].value()
-        telefone = form['telefone_form'].value()
-        email = form['email_form'].value()
-        password = form['senha_form'].value()
-        passwordC = form['senhaconfirmar_form'].value()
+    if form_User.is_valid():
+        nome = form_User['nome_form'].value()
+        cpf = form_User['cpf_form'].value()
+        endereco = form_User['endereco_form'].value()
+        telefone = form_User['telefone_form'].value()
+        email = form_User['email_form'].value()
+        password = form_User['senha_form'].value()
+        passwordC = form_User['senhaconfirmar_form'].value()
         messages.success(request, f'Usuário cadastrado com sucesso!')
-        return redirect('cadastrar_usuarios')
+        return redirect('funcionario')
     else:
-        messages.error(request, f'Erro ao realizar o login!')
-        return redirect('cadastrar_usuarios')
+        form_User = CadastrarUsuario
+        return render('funcionario',{'form':form})
 
 def cadastrarL(request):
     if request.method == 'POST':

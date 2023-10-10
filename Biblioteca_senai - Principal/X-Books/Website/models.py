@@ -37,6 +37,8 @@ class Genero(models.Model):
     def __str__(self):
         return self.nome
 
+class Feedback(models.Model):
+    feedback = models.TextField(max_length=255)
 
 class Livros(models.Model):
     titulo = models.CharField(max_length= 30)

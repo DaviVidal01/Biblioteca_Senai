@@ -20,6 +20,6 @@ urlpatterns =[
     path('login/', views.login, name="login"),
     path('deletar/<int:id>', views.delete, name="delete"),
     path('feedback/', views.feedback, name="feedback"),
-    path('cadastroL/', views.cadastrarL, name="cadastroL"),
+    path('cadastroL/', views.cadastrarL, name="cadastro"),
     path('cadastroU/', views.cadastrarU, name="cadastroU"),
 ]
