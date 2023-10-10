@@ -64,48 +64,32 @@
             <span class="visually-hidden">Próximo</span>
           </button>
         </div>
-      <!-- CARROSSEL DE DESTAQUES -->
-      <div class="container">
-        <h1 class="text-center fw-bold my-4">Destaques</h1>
-        <div id="carouselExampleIntervalDestaque" class="carousel slide" data-bs-ride="carousel">
+                            
+      <!--CARROSSEL DE DESTAQUES -->
+      <!--<div class="container">
+        <h1 class="border-bottom fw-bold my-4">Destaques</h1>
+        <div id="CarouselDestaque" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
               <div class="row align-items-start gap-3">
                 {% for x in livros %}
-                <div class="card shadow-sm p-3 mb-3 bg-body-tertiary rounded">
-                  <div class="card-body">
-                    {% if x.image %}
-                      <img src="{{ x.image.url }}" alt="" class="card-img-top">
-                    {% else %}
-                    {% endif %}
-                    </hr>
-                    <h5 class="text-center mt-3">{{x.titulo}}</h5>
-                    <div class="footer mt-3">
-                      <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
-                    </div>
-                  </div>
-                </div>
-                {% endfor %}
-              </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <div class="row align-items-start gap-3">
-                {% for x in livros %}
                   {% if x.destaque == '2' %}
-                    <div class="card shadow-sm p-3 mb-3 bg-body-tertiary rounded">
-                      <div class="card-body">
-                        {% if x.image %}
-                          <img src="{{ x.image.url }}" alt="" class="card-img-top">
-                        {% else %}
-                        {% endif %}
-                        </hr>
-                        <h5 class="text-center mt-3">{{x.titulo}}</h5>
-                        <div class="footer mt-3">
-                          {% if x.status %}
-                            <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                    <div class="col">
+                      <div class="card shadow-sm p-3 mb-3 bg-body-tertiary rounded">
+                        <div class="card-body">
+                          {% if x.image %}
+                            <img src="{{ x.image.url }}" alt="" class="card-img-top">
                           {% else %}
-                            <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
                           {% endif %}
+                          </hr>
+                          <h5 class="text-center mt-3">{{x.titulo}}</h5>
+                          <div class="footer mt-3">
+                            {% if x.status %}
+                              <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                            {% else %}
+                              <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                            {% endif %}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -115,57 +99,82 @@
               </div>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIntervalDestaque" data-bs-slide="prev">
+          <button class="carousel-control-prev" type="button" data-bs-target="#CarouselDestaque" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Anterior</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIntervalDestaque" data-bs-slide="next">
+          <button class="carousel-control-next" type="button" data-bs-target="#CarouselDestaque" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Próximo</span>
           </button>
         </div>
-        <!--<div class="row">
-          <div class="owl-carousel owl-theme p-1">
-            <div class="item">
-              <div class="card shadow-sm p-3 mb-3 bg-body-tertiary rounded">
-                <div class="card-body">
-                  <img src="https://images.pexels.com/photos/1475296/pexels-photo-1475296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="card-img-top" width="300px" height="300px">
-                  </hr>
-                  <h5 class="text-center mt-3">Título</h5>
-                  <div class="footer mt-3">
-                    <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+      </div>-->
+      <!-- FIM CARROSSEL DE DESTAQUES -->
+      <div class="container pt-4 mt-3">
+        <h2 class="pb-2 border-bottom">Produtos Gerais</h2>
+        <div id="carouselExampleIntervalGeral" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+              <div class="row align-items-start gap-3">
+                {% for x in livros %}
+                <div class="col">
+                  <div class="card shadow-sm p-3 mb-3 bg-body-tertiary rounded">
+                    <div class="card-body">
+                      {% if x.image %}
+                        <img src="{{ x.image.url }}" alt="" class="card-img-top">
+                      {% else %}
+                      {% endif %}
+                      </hr>
+                      <h5 class="text-center mt-3">{{x.titulo}}</h5>
+                      <div class="footer mt-3">
+                        {% if x.status %}
+                          <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                        {% else %}
+                          <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                        {% endif %}
+                      </div>
+                    </div>
                   </div>
                 </div>
+                {% endfor %}
               </div>
             </div>
-            <div class="item">
-              <div class="card shadow-sm p-3 mb-3">
-                <div class="card-body">
-                  <img src="https://images.pexels.com/photos/1475296/pexels-photo-1475296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="card-img-top" width="500px" height="300px">
-                  </hr>
-                  <h5 class="text-center mt-3">Título</h5>
-                  <div class="footer mt-3">
-                    <button type="button" class="btn btn-primary w-100"><a href="../templates/descricao.html"></a>Reservar</button>
+            <div class="carousel-item" data-bs-interval="5000">
+              <div class="row align-items-start gap-3">
+                {% for x in social %}
+                <div class="col">
+                  <div class="card shadow-sm p-3 mb-3 bg-body-tertiary rounded">
+                    <div class="card-body">
+                      {% if x.image %}
+                        <img src="{{ x.image.url }}" alt="" class="card-img-top">
+                      {% else %}
+                      {% endif %}
+                      </hr>
+                      <h5 class="text-center mt-3">{{x.titulo}}</h5>
+                      <div class="footer mt-3">
+                        {% if x.status %}
+                          <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                        {% else %}
+                          <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                        {% endif %}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="card shadow-sm p-3 mb-3">
-                <div class="card-body">
-                  <img src="https://images.pexels.com/photos/1475296/pexels-photo-1475296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="card-img-top" width="500px" height="300px">
-                  </hr>
-                  <h5 class="text-center mt-3">Título</h5>
-                  <div class="footer mt-3">
-                    <button type="button" class="btn btn-primary w-100"><a href="../templates/descricao.html"></a>Reservar</button>
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
           </div>
-        </div>-->
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIntervalGeral" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIntervalGeral" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
       </div>
-      <!-- FIM CARROSSEL DE DESTAQUES -->
 
       <!-- SESSÃO NOVIDADES -->
       <div class="container py-5">
