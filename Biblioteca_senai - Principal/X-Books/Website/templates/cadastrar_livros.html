@@ -14,11 +14,13 @@
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Cadastrar Livros</p>
                       <form action = "{% url 'cadastroL' %}" class="mx-1 mx-md-4">
+                        {% csrf_token %}
+                        {% for field in form_Livros.visible_fields %}
 
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
-                            <label class="form-label" for="form3Example1c">Titulo:</label>
+                            <label for="{{field.id_for_label}}" class="form-label">{{field.label}}</label>
                             <input type="text" id="form3Example1c" class="form-control" />
                           </div>
                         </div>
@@ -26,7 +28,7 @@
                         <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
-                                <label class="form-label" for="form3Example1c">Autor:</label>  
+                                <label for="{{field.id_for_label}}" class="form-label">{{field.label}}</label>  
                               <input type="text" id="form3Example1c" class="form-control" />
                             </div>
                           </div>
@@ -34,7 +36,7 @@
                           <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
-                                <label class="form-label" for="form3Example1c">Genero:</label>  
+                                <label for="{{field.id_for_label}}" class="form-label">{{field.label}}</label>  
                               <input type="text" id="form3Example1c" class="form-control" />
                             </div>
                           </div>
@@ -42,18 +44,18 @@
                           <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
-                                <label class="form-label" for="form3Example1c">Ano:</label>  
+                                <label for="{{field.id_for_label}}" class="form-label">{{field.label}}</label>  
                               <input type="text" id="form3Example1c" class="form-control" />
                             </div>
                           </div>
                           <div class="row align-items-center py-3"> 
                             <div>
-                                <label class="form-label" for="form3Example1c">Capa:</label>  
+                                <label for="{{field.id_for_label}}" class="form-label">{{field.label}}</label>  
                               <input class="form-control form-control-lg" id="formFileLg" type="file" />
                             </div>
                           </div>
                           <hr class="mx-n3">
-      
+                        {% endfor %}
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <button type="button" class="btn btn-primary btn-lg">Register</button>
                         </div>

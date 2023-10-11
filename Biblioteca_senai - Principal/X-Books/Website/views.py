@@ -5,13 +5,12 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
-    feedback = Feedback.objects.all()
     form_email = LoginEmail()
     form_feedback = Feedback()
     return render(request,"index.html", {
         "form": form_email, 
         "formF": form_feedback,
-        "feedback": feedback
+
         })
     
 def livros(request):
@@ -65,11 +64,12 @@ def cadastro(request):
 
 def cadastro_usuarios(request):
     usuarios = Usuario.objects.all()
-    form_User = CadastrarUsuario() 
+    form_User = CadastrarUsuario()
     return render(request,"cadastrar_usuario.html", {'usuarios':usuarios,"form_User": form_User })
 
 def cadastro_book(request):
-    usuarios = Usuario.objects.all()
+    livros = Livros.objects.all()
+    form_Livros = CadastrarLivros()
     return render(request,"cadastrar_livros.html", {'usuarios': usuarios})   
 
 def consulta_book(request):
@@ -106,21 +106,22 @@ def feedback(request):
 def delete(request, id):
     x = xbooks.objects.get(pk=id)
     x.delete()
-    messages.error(request, f'email deletado com sucesso!')
-    return redirect('index')
+    return redirect('listar')
 
 def cadastrarU(request):
     if request.method == 'POST':
         form_User = CadastrarUsuario(request.POST)
 
     if form_User.is_valid():
-        nome = form_User['nome_form'].value()
-        cpf = form_User['cpf_form'].value()
-        endereco = form_User['endereco_form'].value()
-        telefone = form_User['telefone_form'].value()
-        email = form_User['email_form'].value()
-        password = form_User['senha_form'].value()
-        passwordC = form_User['senhaconfirmar_form'].value()
+        Usuario.objects.create(
+        nome = form_User['nome_form'].value(),
+        cpf = form_User['cpf_form'].value(),
+        endereco = form_User['endereco_form'].value(),
+        telefone = form_User['telefone_form'].value(),
+        email = form_User['email_form'].value(),
+        senha = form_User['senha_form'].value(),
+        
+        )
         messages.success(request, f'Usuário cadastrado com sucesso!')
         return redirect('funcionario')
     else:
@@ -132,13 +133,31 @@ def cadastrarL(request):
         form = CadastrarLivros(request.POST)
 
     if form.is_valid():
-        titulo = form['titulo_form'].value()
-        autor = form['autor_form'].value()
-        genero = form['genero_form'].value()
-        ano = form['ano_form'].value()
-        capa = form['capa_form'].value()
+        titulo = form_Livros['titulo_form'].value()
+        autor = form_Livros['autor_form'].value()
+        genero = form_Livros['genero_form'].value()
+        ano = form_Livros['ano_form'].value()
+        capa = form_Livros['capa_form'].value()
         messages.success(request, f'Livro registrado com sucesso!')
         return redirect('cadastrar_livros')
     else:
-        messages.error(request, f'Erro ao realizar o login!')
-        return redirect('cadastrar_livros')
+        form_Livros = CadastrarLivros
+        return render('funcionario',{'form':form})
+
+def listar(request):
+    usuarios = Usuario.objects.all()
+    return render(request,"consulta_usuario.html",{"usuarios":usuarios})
+
+def adicionar(request):
+    Usuario.objects.create(nome=request.POST['nome'])
+    return redirect('listar')
+
+def editar(request, id):
+    usuarios = Usuario.objects.get(pk=id)
+    return render(request, "consultar_usuario.html", {"usuarios":usuarios})
+
+def update(request, id):
+    usuarios = Usuario.objects.get(pk=id)
+    usuarios.nome = request.POST['nome']
+    usuarios.save()
+    return redirect('listar')

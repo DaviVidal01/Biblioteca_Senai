@@ -22,4 +22,10 @@ urlpatterns =[
     path('feedback/', views.feedback, name="feedback"),
     path('cadastroL/', views.cadastrarL, name="cadastro"),
     path('cadastroU/', views.cadastrarU, name="cadastroU"),
+
+    path('listar', views.listar, name="listar"),
+    path('adicionar/', views.adicionar, name="adicionar"),
+    path('delete/<int:id>', views.delete, name="delete"),
+    path('editar/<int:id>', views.editar, name="editar"),
+    path('update/<int:id>', views.update, name="update"),
 ]
