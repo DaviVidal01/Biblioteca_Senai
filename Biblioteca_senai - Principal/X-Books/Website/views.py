@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect
 from .models import *
 from Website.forms import LoginEmail, Feedback, CadastrarLivros, CadastrarUsuario
 from django.contrib import messages
-
+from django.contrib.auth.models import User
+from django.contrib import auth
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
     form_email = LoginEmail()
@@ -84,17 +87,34 @@ def faq(request):
     return render(request,"FAQs.html") 
 
 def login(request):
+    form = LoginEmail()
+
     if request.method == 'POST':
         form = LoginEmail(request.POST)
 
     if form.is_valid():
         email = form['email_form'].value()
         password = form['senha_form'].value()
-        messages.success(request, f'Cadastrar com sucesso!')
+
+    usuario = auth.authenticate(
+        request,
+        username = email,
+        password = password
+    )
+    if usuario is not None:
+        auth.login(request,usuario)
+        messages.success(request, f'{email}Cadastrar com sucesso!')
         return redirect('index')
     else:
-        messages.error(request, f' erro ao realizar o login!')
+        messages.error(request, f' Erro ao realizar o login!')
         return redirect('index')
+    
+    return render(request, 'index.html', {'form': form})
+    
+def logout(request):
+    auth.logout(request)
+    messages.success(request, 'Logout efetuado com sucesso!')
+    return redirect('index')
 
 def feedback(request):
     if request.method == "POST":

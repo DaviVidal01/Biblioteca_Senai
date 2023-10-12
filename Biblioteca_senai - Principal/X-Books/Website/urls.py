@@ -17,12 +17,14 @@ urlpatterns =[
     path('cadastro_book/', views.cadastro_book, name="cadastro"),
     path('consulta_book/', views.consulta_book, name="cadastro"),
     path('consulta_user/', views.consulta_user, name="cadastro"),
-    path('login/', views.login, name="login"),
+
     path('deletar/<int:id>', views.delete, name="delete"),
     path('feedback/', views.feedback, name="feedback"),
     path('cadastroL/', views.cadastrarL, name="cadastro"),
     path('cadastroU/', views.cadastrarU, name="cadastroU"),
 
+    path('login', views.login, name="login"),
+    path('logout', views.logout, name='logout'),
     path('listar', views.listar, name="listar"),
     path('adicionar/', views.adicionar, name="adicionar"),
     path('delete/<int:id>', views.delete, name="delete"),

@@ -6,7 +6,7 @@ class LoginEmail(forms.Form):
         label = 'Email',
         required = True,
         max_length = 60,
-        widget = forms.EmailInput(
+        widget = forms.TextInput(
             attrs = {
                 'class' : 'form-control',
                 'placeholder' : 'email@email.com',
