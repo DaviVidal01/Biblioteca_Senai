@@ -18,6 +18,7 @@ urlpatterns =[
     path('consulta_book/', views.consulta_book, name="cadastro"),
     path('consulta_user/', views.consulta_user, name="cadastro"),
     path('atualiza_user/', views.atualiza_user, name="atualizacao"),
+    path('atualiza_book/', views.atualiza_book, name="atualizacao"),
     path('login/', views.login, name="login"),
     path('feedback/', views.feedback, name="feedback"),
     path('cadastrarL', views.cadastrarL, name="cadastrarL"),

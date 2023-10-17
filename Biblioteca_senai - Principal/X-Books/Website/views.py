@@ -186,14 +186,11 @@ def updateL(request, id):
     livros.titulo = request.POST['titulo']
     livros.autor = request.POST['autor']
     livros.status = request.POST['status']
-    livros.genero = request.POST['genero']
     livros.ano = request.POST['ano']
     livros.destaque = request.POST['destaque']
     livros.image = request.POST['image']
     livros.save()
     return redirect('listarL')
-
-
 
 def consulta_book(request):
     livros = Livros.objects.all()
