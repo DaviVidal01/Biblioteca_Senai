@@ -146,16 +146,7 @@ class CadastrarLivros(forms.Form):
             }
         )
     )
-    genero_form = forms.CharField(
-        label='Genero',
-        required= True,
-        max_length= 45,
-        widget= forms.TextInput(
-            attrs = {
-                'class' : 'form-control'
-            }
-        )
-    )
+
     ano_form = forms.CharField(
         label='Ano',
         required= True,
@@ -166,8 +157,8 @@ class CadastrarLivros(forms.Form):
             }
         )
     )
-    capa_form = forms.CharField(
-        label='Capa',
+    image_form = forms.CharField(
+        label='Image',
         required= True,
         max_length= 45,
         widget= forms.FileInput(
