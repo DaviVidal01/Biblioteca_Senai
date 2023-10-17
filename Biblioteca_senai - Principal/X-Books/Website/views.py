@@ -79,10 +79,6 @@ def consulta_book(request):
     usuarios = Usuario.objects.all()
     return render(request,"consulta_livros.html", {'usuarios': usuarios}) 
     
-def atualiza_user(request):
-    usuarios = Usuario.objects.all()
-    return render(request,"Atualiza_usuario.html", {'usuarios': usuarios})      
-
 def consulta_user(request):
     usuarios = Usuario.objects.all()
     return render(request,"consulta_usuario.html", {'usuarios': usuarios})           
@@ -128,7 +124,7 @@ def feedback(request):
         return redirect('index')
 
 def delete(request, id):
-    x = Usuario.objects.get(pk=id)
+    x = xbooks.objects.get(pk=id)
     x.delete()
     return redirect('listar')
 
@@ -183,8 +179,5 @@ def editar(request, id):
 def update(request, id):
     usuarios = Usuario.objects.get(pk=id)
     usuarios.nome = request.POST['nome']
-    usuarios.endereco = request.POST['endereco']
-    usuarios.telefone = request.POST['telefone']
-    usuarios.email = request.POST['email']
     usuarios.save()
     return redirect('listar')
