@@ -14,21 +14,31 @@ urlpatterns =[
     path('descricao/', views.descricao, name="descricao"),
     path('cadastro/', views.cadastro, name="cadastro"),
     path('cadastro_user/', views.cadastro_usuarios, name="cadastro"),
-    path('cadastro_book/', views.cadastro_book, name="cadastro"),
+    path('cadastro_book/', views.cadastro_book, name="cadastro_book"),
     path('consulta_book/', views.consulta_book, name="cadastro"),
     path('consulta_user/', views.consulta_user, name="cadastro"),
     path('atualiza_user/', views.atualiza_user, name="atualizacao"),
     path('login/', views.login, name="login"),
-    path('deletar/<int:id>', views.delete, name="delete"),
     path('feedback/', views.feedback, name="feedback"),
-    path('cadastroL/', views.cadastrarL, name="cadastro"),
-    path('cadastroU/', views.cadastrarU, name="cadastroU"),
+    path('cadastrarL', views.cadastrarL, name="cadastrarL"),
+    path('cadastrarU/', views.cadastrarU, name="cadastrarU"),
 
+# -------- Auth Login
     path('login', views.login, name="login"),
     path('logout', views.logout, name='logout'),
-    path('listar', views.listar, name="listar"),
-    path('adicionar/', views.adicionar, name="adicionar"),
-    path('delete/<int:id>', views.delete, name="delete"),
-    path('editar/<int:id>', views.editar, name="editar"),
-    path('update/<int:id>', views.update, name="update"),
+    path('deleteU/<int:id>', views.deleteU, name="delete"),
+
+# -------- CRUD Usuários
+    path('listarU', views.listarU, name="listarU"),
+    path('adicionarU/', views.adicionarU, name="adicionarU"),
+    path('deletarU/<int:id>', views.deleteU, name="deleteU"),
+    path('editarU/<int:id>', views.editarU, name="editarU"),
+    path('updateU/<int:id>', views.updateU, name="updateU"),
+
+# -------- CRUD Livros
+    path('listarL', views.listarL, name="listarL"),
+    path('adicionarL/', views.adicionarL, name="adicionarL"),
+    path('deletarL/<int:id>', views.deleteL, name="deleteL"),
+    path('editarL/<int:id>', views.editarL, name="editarL"),
+    path('updateL/<int:id>', views.updateL, name="updateL"),
 ]

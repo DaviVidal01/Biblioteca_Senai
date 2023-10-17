@@ -14,7 +14,7 @@
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Editar dados do usuarios</p>
                       {% for user in usuarios %}
-                      <form class="mx-1 mx-md-4"  action="{% url 'update' user.id %}" method="POST">
+                      <form class="mx-1 mx-md-4"  action="{% url 'updateU' user.id %}" method="POST">
                         {% csrf_token %}
                         <input type="text" name="nome" value="{{user.nome}}">
                         <input type="text" name="endereco" value="{{user.endereco}}">
