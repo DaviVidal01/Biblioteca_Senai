@@ -83,19 +83,21 @@ def cadastrarU(request):
     if request.method == 'POST':
         form_User = CadastrarUsuario(request.POST)
 
-    if form_User.is_valid():
-        Usuario.objects.create(
-        nome = form_User['nome_form'].value(),
-        cpf = form_User['cpf_form'].value(),
-        endereco = form_User['endereco_form'].value(),
-        telefone = form_User['telefone_form'].value(),
-        email = form_User['email_form'].value(),
-        senha = form_User['senha_form'].value(),
-        )
-        messages.success(request, f'Usuário cadastrado com sucesso!')
-        return redirect('funcionario')
+        if form_User.is_valid():
+            Usuario.objects.create(
+            nome = form_User['nome_form'].value(),
+            cpf = form_User['cpf_form'].value(),
+            endereco = form_User['endereco_form'].value(),
+            telefone = form_User['telefone_form'].value(),
+            email = form_User['email_form'].value(),
+            senha = form_User['senha_form'].value(),
+            )
+            messages.success(request, f'Usuário cadastrado com sucesso!')
+
+            return redirect('funcionario')
     else:
         form_User = CadastrarUsuario
+
         return render('funcionario',{'formU':form_User})
 
 def cadastro_book(request):
@@ -104,7 +106,7 @@ def cadastro_book(request):
     return render(request,"cadastrar_livros.html", {'livros': livros, 'form_Livros': form_Livros})   
 
 def cadastrarL(request):
-    form = CadastrarLivros()
+    form_Livros = CadastrarLivros()
     if request.method == 'POST':
         form_Livros = CadastrarLivros(request.POST, request.FILES)
 
@@ -120,7 +122,7 @@ def cadastrarL(request):
             return redirect('funcionario')
         else:
             print("erro")
-    return render(request,'cadastrar_livros.html',{'form':form})
+    return render(request,'cadastrar_livros.html',{'form_Livros':form_Livros})
 
 # ----------- CRUD Usuário
 
@@ -246,6 +248,7 @@ def feedback(request):
         bd = Genero(nome=request.POST['feedback_form'])
         bd.save()
         messages.success(request, f'feedback enviado com sucesso!')
+<<<<<<< HEAD
         return redirect('index')
 
 def delete(request, id):
@@ -290,3 +293,6 @@ def update(request, id):
     usuarios.nome = request.POST['nome']
     usuarios.save()
     return redirect('listar')
+=======
+        return redirect('index')
+>>>>>>> 7ac4e3a4173939828ee269c147333ad830fbc8af
