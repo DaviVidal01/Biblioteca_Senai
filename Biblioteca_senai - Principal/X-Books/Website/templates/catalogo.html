@@ -4,118 +4,62 @@
 
  {% include 'partials/navbar2.html' %}
     <!-- LIVROS -->
-    <div class="container py-5">
-      <div class="row align-items-start py-1">
-        <div class="col-sm-6 col-md-3">
-          <div class="card novidade text-white shadow-sm p-3 mb-3">
-            <img src="https://images.pexels.com/photos/672662/pexels-photo-672662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <span><a class=" px-4 fs-6 btn btn-light position-absolute top-50 start-50 translate-middle" href="../templates/descricao.html">Reservar</a></span>
+    <div class="container pt-4 mt-3">
+      <h2 class="pb-2 border-bottom">Livros Gerais</h2>
+      <div id="carouselExampleIntervalPromo" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <div class="row align-items-start gap-3">
+              {% for x in livros %}
+              <div class="col">
+                <div class="card">
+                  {% if x.image %}
+                    <img src="{{ x.image.url }}" class="card-img-top" alt="...">
+                  {% else %}
+                    <p>Capa não foi encontrada</p>
+                  {% endif %}
+                  <div class="card-body text-center">
+                    <h5 class="card-title">{{x.titulo}}</h5>
+                    <p class="card-text">{{x.autor}}</p>
+                    <p class="card-text">{{x.genero}}</p>
+                    <button type="button" class="btn btn-secondary text-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reservar</button>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <div class="row align-items-start gap-3">
+              {% for x in livros %}
+              <div class="col">
+                <div class="card">
+                  {% if x.image %}
+                    <img src="{{ x.image.url }}" class="card-img-top" alt="...">
+                  {% else %}
+                    <p>Capa não foi encontrada</p>
+                  {% endif %}
+                  <div class="card-body text-center">
+                    <h5 class="card-title">{{x.titulo}}</h5>
+                    <p class="card-text">{{x.autor}}</p>
+                    <p class="card-text">{{x.genero}}</p>
+                    <button type="button" class="btn btn-secondary text-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reservar</button>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="card novidade text-white shadow-sm p-3 mb-3">
-            <img src="https://images.pexels.com/photos/672662/pexels-photo-672662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <h4><span class="badge bg-success">Novo</span></h4>
-              <span><a class=" px-4 fs-6 btn btn-light position-absolute top-50 start-50 translate-middle" href="../templates/descricao.html">Reservar</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="card novidade text-white shadow-sm p-3 mb-3">
-            <img src="https://images.pexels.com/photos/672662/pexels-photo-672662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <span><a class=" px-4 fs-6 btn btn-light position-absolute top-50 start-50 translate-middle" href="../templates/descricao.html">Reservar</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="card novidade text-white shadow-sm p-3 mb-3">
-            <img src="https://images.pexels.com/photos/672662/pexels-photo-672662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <span><a class=" px-4 fs-6 btn btn-light position-absolute top-50 start-50 translate-middle" href="../templates/descricao.html">Reservar</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="card novidade text-white shadow-sm p-3 mb-3">
-            <img src="https://images.pexels.com/photos/672662/pexels-photo-672662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <span><a class=" px-4 fs-6 btn btn-light position-absolute top-50 start-50 translate-middle" href="../templates/descricao.html">Reservar</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="card novidade text-white shadow-sm p-3 mb-3">
-            <img src="https://images.pexels.com/photos/672662/pexels-photo-672662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <span><a class=" px-4 fs-6 btn btn-light position-absolute top-50 start-50 translate-middle" href="../templates/descricao.html">Reservar</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="card novidade text-white shadow-sm p-3 mb-3">
-            <img src="https://images.pexels.com/photos/672662/pexels-photo-672662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <h4><span class="badge bg-success">Novo</span></h4>
-              <span><a class=" px-4 fs-6 btn btn-light position-absolute top-50 start-50 translate-middle" href="../templates/descricao.html">Reservar</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="card novidade text-white shadow-sm p-3 mb-3">
-            <img src="https://images.pexels.com/photos/672662/pexels-photo-672662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <span><a class=" px-4 fs-6 btn btn-light position-absolute top-50 start-50 translate-middle" href="../templates/descricao.html">Reservar</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="card novidade text-white shadow-sm p-3 mb-3">
-            <img src="https://images.pexels.com/photos/672662/pexels-photo-672662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <h4><span class="badge bg-success">Novo</span></h4>
-              <span><a class=" px-4 fs-6 btn btn-light position-absolute top-50 start-50 translate-middle" href="../templates/descricao.html">Reservar</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="card novidade text-white shadow-sm p-3 mb-3">
-            <img src="https://images.pexels.com/photos/672662/pexels-photo-672662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <span><a class=" px-4 fs-6 btn btn-light position-absolute top-50 start-50 translate-middle" href="../templates/descricao.html">Reservar</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="card novidade text-white shadow-sm p-3 mb-3">
-            <img src="https://images.pexels.com/photos/672662/pexels-photo-672662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <h4><span class="badge bg-success">Novo</span></h4>
-              <span><a class=" px-4 fs-6 btn btn-light position-absolute top-50 start-50 translate-middle" href="../templates/descricao.html">Reservar</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="card novidade text-white shadow-sm p-3 mb-3">
-            <img src="https://images.pexels.com/photos/672662/pexels-photo-672662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <span><a class=" px-4 fs-6 btn btn-light position-absolute top-50 start-50 translate-middle" href="../templates/descricao.html">Reservar</a></span>
-            </div>
-          </div>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIntervalPromo" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIntervalPromo" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-        <nav aria-label="pagination">
-            <ul class="pagination pagination-md justify-content-center">
-                <li class="page-item active" aria-current="page">
-                    <span class="page-link">1</span>
-                </li>
-                <li class="page-item"><a class="page-link" href="catalogo-2.html">2</a></li>
-                </li>
-            </ul>
-        </nav>
     </div>
     {% include 'partials/footer.html' %}
 {% endblock %}

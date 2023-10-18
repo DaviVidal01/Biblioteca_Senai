@@ -83,19 +83,21 @@ def cadastrarU(request):
     if request.method == 'POST':
         form_User = CadastrarUsuario(request.POST)
 
-    if form_User.is_valid():
-        Usuario.objects.create(
-        nome = form_User['nome_form'].value(),
-        cpf = form_User['cpf_form'].value(),
-        endereco = form_User['endereco_form'].value(),
-        telefone = form_User['telefone_form'].value(),
-        email = form_User['email_form'].value(),
-        senha = form_User['senha_form'].value(),
-        )
-        messages.success(request, f'Usuário cadastrado com sucesso!')
-        return redirect('funcionario')
+        if form_User.is_valid():
+            Usuario.objects.create(
+            nome = form_User['nome_form'].value(),
+            cpf = form_User['cpf_form'].value(),
+            endereco = form_User['endereco_form'].value(),
+            telefone = form_User['telefone_form'].value(),
+            email = form_User['email_form'].value(),
+            senha = form_User['senha_form'].value(),
+            )
+            messages.success(request, f'Usuário cadastrado com sucesso!')
+
+            return redirect('funcionario')
     else:
         form_User = CadastrarUsuario
+
         return render('funcionario',{'formU':form_User})
 
 def cadastro_book(request):
@@ -104,7 +106,7 @@ def cadastro_book(request):
     return render(request,"cadastrar_livros.html", {'livros': livros, 'form_Livros': form_Livros})   
 
 def cadastrarL(request):
-    form = CadastrarLivros()
+    form_Livros = CadastrarLivros()
     if request.method == 'POST':
         form_Livros = CadastrarLivros(request.POST, request.FILES)
 
@@ -120,7 +122,7 @@ def cadastrarL(request):
             return redirect('funcionario')
         else:
             print("erro")
-    return render(request,'cadastrar_livros.html',{'form':form})
+    return render(request,'cadastrar_livros.html',{'form_Livros':form_Livros})
 
 # ----------- CRUD Usuário
 
@@ -247,62 +249,3 @@ def feedback(request):
         bd.save()
         messages.success(request, f'feedback enviado com sucesso!')
         return redirect('index')
-
-def delete(request, id):
-    x = xbooks.objects.get(pk=id)
-    x.delete()
-    return redirect('listar')
-
-def cadastrarU(request):
-    if request.method == 'POST':
-        form_User = CadastrarUsuario(request.POST)
-
-    if form_User.is_valid():
-        Usuario.objects.create(
-        nome = form_User['nome_form'].value(),
-        cpf = form_User['cpf_form'].value(),
-        endereco = form_User['endereco_form'].value(),
-        telefone = form_User['telefone_form'].value(),
-        email = form_User['email_form'].value(),
-        senha = form_User['senha_form'].value(),
-        
-        )
-        messages.success(request, f'Usuário cadastrado com sucesso!')
-        return redirect('funcionario')
-    else:
-        form_User = CadastrarUsuario
-        return render('funcionario',{'form':form})
-
-def cadastrarL(request):
-    if request.method == 'POST':
-        form = CadastrarLivros(request.POST)
-
-    if form.is_valid():
-        titulo = form_Livros['titulo_form'].value()
-        autor = form_Livros['autor_form'].value()
-        genero = form_Livros['genero_form'].value()
-        ano = form_Livros['ano_form'].value()
-        capa = form_Livros['capa_form'].value()
-        messages.success(request, f'Livro registrado com sucesso!')
-        return redirect('cadastrar_livros')
-    else:
-        form_Livros = CadastrarLivros
-        return render('funcionario',{'form':form})
-
-def listar(request):
-    usuarios = Usuario.objects.all()
-    return render(request,"consulta_usuario.html",{"usuarios":usuarios})
-
-def adicionar(request):
-    Usuario.objects.create(nome=request.POST['nome'])
-    return redirect('listar')
-
-def editar(request, id):
-    usuarios = Usuario.objects.get(pk=id)
-    return render(request, "consultar_usuario.html", {"usuarios":usuarios})
-
-def update(request, id):
-    usuarios = Usuario.objects.get(pk=id)
-    usuarios.nome = request.POST['nome']
-    usuarios.save()
-    return redirect('listar')
