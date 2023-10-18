@@ -273,22 +273,6 @@ def cadastrarU(request):
         form_User = CadastrarUsuario
         return render('funcionario',{'form':form})
 
-def cadastrarL(request):
-    if request.method == 'POST':
-        form = CadastrarLivros(request.POST)
-
-    if form.is_valid():
-        titulo = form_Livros['titulo_form'].value()
-        autor = form_Livros['autor_form'].value()
-        genero = form_Livros['genero_form'].value()
-        ano = form_Livros['ano_form'].value()
-        capa = form_Livros['capa_form'].value()
-        messages.success(request, f'Livro registrado com sucesso!')
-        return redirect('cadastrar_livros')
-    else:
-        form_Livros = CadastrarLivros
-        return render('funcionario',{'form':form})
-
 def listar(request):
     usuarios = Usuario.objects.all()
     return render(request,"consulta_usuario.html",{"usuarios":usuarios})
