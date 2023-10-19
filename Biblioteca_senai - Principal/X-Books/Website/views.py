@@ -35,10 +35,13 @@ def catalogo2(request):
     return render(request,"catalogo-2.html", {'livros': livros, "formF": form_feedback})
 
 def FAQs(request):
-    form_email = LoginEmail,
-    form_senha = LoginSenha,
-    form_feedback = Feedback,
-    return render(request,"FAQs.html", {"formE": form_email,"formS": form_senha, "formF": form_feedback})
+    form_email = LoginEmail()
+    form_feedback = Feedback()
+    return render(request,"index.html", {
+        "form": form_email, 
+        "formF": form_feedback,
+
+        })
 
 def funcionario(request):
     usuarios = Usuario.objects.all()
