@@ -14,14 +14,14 @@
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Editar dados dos Livros</p>
                       {% for livro in livros %}
-                      <form class="mx-1 mx-md-4"  action="{% url 'updateL' livro.id %}" method="POST">
+                      <form class="mx-1 mx-md-4"  action="{% url 'updateL' livros.id %}" method="POST">
                         {% csrf_token %}
-                        <input type="text" name="titulo" value="{{livro.titulo}}">
-                        <input type="text" name="autor" value="{{livro.autor}}">
-                        <input type="text" name="status" value="{{livro.status}}">
-                        <input type="text" name="ano" value="{{livro.ano}}">
-                        <input type="checkbox" name="destaque" value="{{livro.destaque}}">
-                        <input type="file" name="image" value="{{livro.image}}">
+                        <input type="text" name="titulo" value="{{livros.titulo}}">
+                        <input type="text" name="autor" value="{{livros.autor}}">
+                        <input type="text" name="status" value="{{livros.status}}">
+                        <input type="text" name="ano" value="{{livros.ano}}">
+                        <input type="checkbox" name="destaque" value="{{livros.destaque}}">
+                        <input type="file" name="image" value="{{livros.image}}">
                         <button type="submit">Enviar</button>
                       </form>
                       {% endfor %}
