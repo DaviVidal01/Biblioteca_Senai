@@ -29,11 +29,6 @@ def catalogo(request):
     form_feedback = Feedback
     return render(request,"catalogo.html", {'livros': livros, "formF": form_feedback})
 
-def catalogo2(request):
-    livros = Livros.objects.all()
-    form_feedback = Feedback
-    return render(request,"catalogo-2.html", {'livros': livros, "formF": form_feedback})
-
 def FAQs(request):
     form_email = LoginEmail,
     form_senha = LoginSenha,
