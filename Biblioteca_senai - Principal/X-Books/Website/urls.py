@@ -23,6 +23,7 @@ urlpatterns =[
     path('feedback/', views.feedback, name="feedback"),
     path('cadastrarL', views.cadastrarL, name="cadastrarL"),
     path('cadastrarU/', views.cadastrarU, name="cadastrarU"),
+    path('reserva_livros/', views.status, name="reserva_livros"),
 
 # -------- Auth Login
     path('login', views.login, name="login"),

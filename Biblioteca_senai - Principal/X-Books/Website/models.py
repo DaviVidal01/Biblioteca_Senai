@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
-from django.utils import timezone
+
 
 # Create your models here.
 #CATEGORIAS = (
@@ -67,6 +67,6 @@ class Usuario(models.Model):
 class Registro(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete= models.CASCADE)
     livro = models.ForeignKey(Livros, on_delete= models.CASCADE)
-    data_Ret = models.DateTimeField(default=datetime.now())
-    data_Dev = models.DateTimeField(default=datetime.now())
+    data_Ret = models.CharField(max_length=45)
+    data_Dev = models.CharField(max_length=45)
     status = models.CharField(max_length=20, choices= STATUS2, default= '1')

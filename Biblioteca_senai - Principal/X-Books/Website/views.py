@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import *
-from Website.forms import LoginEmail, Feedback, CadastrarLivros, CadastrarUsuario
+from Website.forms import LoginEmail, Feedback, CadastrarLivros, CadastrarUsuario, ReservarLivros
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from datetime import date
 # Create your views here.
 
 # ----------- Páginas
@@ -105,7 +106,27 @@ def cadastro_book(request):
     form_Livros = CadastrarLivros()
     return render(request,"cadastrar_livros.html", {'livros': livros, 'form_Livros': form_Livros})   
 
+def status(request):
+    form_Reservar = ReservarLivros()
+    if request.method == 'POST':
+        form= ReservarLivros(request.POST)
+        print(form)
+        if form.is_valid():
+            Registro.objects.create(
+            data_Ret = form['data_Ret'].value(),
+            data_Dev = form['data_Dev'].value(),
+            status = form['status'].value(),
+            livro_id = 5,
+            usuario_id = 3,
+            )
+            messages.success(request, f'Status alterado com sucesso!')
+            return redirect("index")
+        else:
+            print("erro")
+    return render(request,'reserva_livros.html',{'form_Reservar':form_Reservar})
+
 def cadastrarL(request):
+    
     form_Livros = CadastrarLivros()
     if request.method == 'POST':
         form_Livros = CadastrarLivros(request.POST, request.FILES)
@@ -119,7 +140,7 @@ def cadastrarL(request):
             genero_id = 1,
             )
             messages.success(request, f'Livro registrado com sucesso!')
-            return redirect('funcionario')
+            
         else:
             print("erro")
     return render(request,'cadastrar_livros.html',{'form_Livros':form_Livros})
@@ -248,51 +269,5 @@ def feedback(request):
         bd = Genero(nome=request.POST['feedback_form'])
         bd.save()
         messages.success(request, f'feedback enviado com sucesso!')
-<<<<<<< HEAD
         return redirect('index')
 
-def delete(request, id):
-    x = xbooks.objects.get(pk=id)
-    x.delete()
-    return redirect('listar')
-
-def cadastrarU(request):
-    if request.method == 'POST':
-        form_User = CadastrarUsuario(request.POST)
-
-    if form_User.is_valid():
-        Usuario.objects.create(
-        nome = form_User['nome_form'].value(),
-        cpf = form_User['cpf_form'].value(),
-        endereco = form_User['endereco_form'].value(),
-        telefone = form_User['telefone_form'].value(),
-        email = form_User['email_form'].value(),
-        senha = form_User['senha_form'].value(),
-        
-        )
-        messages.success(request, f'Usuário cadastrado com sucesso!')
-        return redirect('funcionario')
-    else:
-        form_User = CadastrarUsuario
-        return render('funcionario',{'form':form})
-
-def listar(request):
-    usuarios = Usuario.objects.all()
-    return render(request,"consulta_usuario.html",{"usuarios":usuarios})
-
-def adicionar(request):
-    Usuario.objects.create(nome=request.POST['nome'])
-    return redirect('listar')
-
-def editar(request, id):
-    usuarios = Usuario.objects.get(pk=id)
-    return render(request, "consultar_usuario.html", {"usuarios":usuarios})
-
-def update(request, id):
-    usuarios = Usuario.objects.get(pk=id)
-    usuarios.nome = request.POST['nome']
-    usuarios.save()
-    return redirect('listar')
-=======
-        return redirect('index')
->>>>>>> 7ac4e3a4173939828ee269c147333ad830fbc8af

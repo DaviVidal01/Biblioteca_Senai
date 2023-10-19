@@ -167,3 +167,34 @@ class CadastrarLivros(forms.Form):
             }
         )
     )
+
+class ReservarLivros(forms.Form):
+    data_Ret = forms.CharField(
+            label = 'Data de retirada',
+            required = True,
+            widget = forms.TextInput(
+                attrs = {
+                    'class' : 'form-control',
+                }
+            )
+        )
+    data_Dev = forms.CharField(
+        label='Data de devolução',
+        required= True,
+        
+        widget= forms.TextInput(
+            attrs = {
+                'class' : 'form-control'
+            }
+        )
+    )
+    status = forms.CharField(
+        label='Status',
+        required= True,
+        max_length= 45,
+        widget= forms.TextInput(
+            attrs = {
+                'class' : 'form-control'
+            }
+        )
+    )
