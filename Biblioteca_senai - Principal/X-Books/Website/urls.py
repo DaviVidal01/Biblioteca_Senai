@@ -5,6 +5,7 @@ urlpatterns =[
     path("", views.index, name="index"),
     path('livros/', views.livros, name="livros"),
     path('catalogo/', views.catalogo, name="catalogo"),
+    path('catalogo2/', views.catalogo2, name="catalogo2"),
     path('funcionario/', views.funcionario, name="funcionario"),
     path('funcionario1/', views.funcionario1, name="funcionario1"),
     path('funcionario2/', views.funcionario2, name="funcionario2"),
@@ -22,6 +23,7 @@ urlpatterns =[
     path('feedback/', views.feedback, name="feedback"),
     path('cadastrarL', views.cadastrarL, name="cadastrarL"),
     path('cadastrarU/', views.cadastrarU, name="cadastrarU"),
+    path('reserva_livros/', views.status, name="reserva_livros"),
 
 # -------- Auth Login
     path('login', views.login, name="login"),

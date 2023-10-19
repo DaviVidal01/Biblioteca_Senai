@@ -11,7 +11,6 @@
          <div class="carousel-item active" data-bs-interval="10000">
            <div class="row align-items-start gap-3">
              {% for x in livros %}
-             {% if x =< 6%}
              <div class="col">
                <div class="card shadow-sm p-3 mb-3 bg-body-tertiary rounded">
                  <div class="card-body">
@@ -24,9 +23,9 @@
                   <h6 class="text-center mt-3">{{x.autor}}</h6>
                   <div class="footer mt-3">
                      {% if x.status %}
-                     <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                     <a  href="../reserva_livros" ><button type="button"class="page-link btn btn-primary w-100">Reservar</button></a>
                      {% else %}
-                     <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                     <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
                      {% endif %}
                     </div>
                  </div>
@@ -49,11 +48,11 @@
                    <h5 class="text-center mt-3">{{x.titulo}}</h5>
                    <h6 class="text-center mt-3">{{x.autor}}</h6>
                    <div class="footer mt-3">
-                     {% if x.status %}
-                     <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
-                     {% else %}
-                     <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
-                     {% endif %}
+                    {% if x.status == Liberado %}
+                    <button type="button" href="../reserva_livros" class="page-link btn btn-primary w-100"><a href="../descricao">Reservar</a></button>
+                    {% else %}
+                    <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
+                    {% endif %}
                     </div>
                  </div>
                 </div>
@@ -92,10 +91,10 @@
                         <h5 class="text-center mt-3">{{x.titulo}}</h5>
                         <h6 class="text-center mt-3">{{x.autor}}</h6>
                         <div class="footer mt-3">
-                          {% if x.status %}
-                            <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                          {% if x.status == Liberado %}
+                          <button type="button" href="../reserva_livros" class="page-link btn btn-primary w-100"><a href="../descricao">Reservar</a></button>
                           {% else %}
-                            <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                          <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
                           {% endif %}
                         </div>
                       </div>
@@ -120,10 +119,10 @@
                         <h5 class="text-center mt-3">{{x.titulo}}</h5>
                         <h6 class="text-center mt-3">{{x.autor}}</h6>
                         <div class="footer mt-3">
-                          {% if x.status %}
-                            <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                          {% if x.status == Liberado %}
+                          <button type="button" href="../reserva_livros" class="page-link btn btn-primary w-100"><a href="../descricao">Reservar</a></button>
                           {% else %}
-                            <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                          <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
                           {% endif %}
                         </div>
                       </div>
@@ -164,10 +163,10 @@
                       <h5 class="text-center mt-3">{{x.titulo}}</h5>
                       <h6 class="text-center mt-3">{{x.autor}}</h6>
                       <div class="footer mt-3">
-                        {% if x.status %}
-                          <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                        {% if x.status == Liberado %}
+                        <button type="button" href="../reserva_livros" class="page-link btn btn-primary w-100"><a href="../descricao">Reservar</a></button>
                         {% else %}
-                          <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                        <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
                         {% endif %}
                       </div>
                     </div>
@@ -192,10 +191,10 @@
                         <h5 class="text-center mt-3">{{x.titulo}}</h5>
                         <h6 class="text-center mt-3">{{x.autor}}</h6>
                         <div class="footer mt-3">
-                          {% if x.status %}
-                            <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                          {% if x.status == Liberado %}
+                          <button type="button" href="../reserva_livros" class="page-link btn btn-primary w-100"><a href="../descricao">Reservar</a></button>
                           {% else %}
-                          <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                          <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
                           {% endif %}
                         </div>
                       </div>
@@ -236,10 +235,10 @@
                         <h5 class="text-center mt-3">{{x.titulo}}</h5>
                         <h6 class="text-center mt-3">{{x.autor}}</h6>
                         <div class="footer mt-3">
-                          {% if x.status %}
-                            <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                          {% if x.status == Liberado %}
+                          <button type="button" href="../reserva_livros" class="page-link btn btn-primary w-100"><a href="../descricao">Reservar</a></button>
                           {% else %}
-                            <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                          <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
                           {% endif %}
                         </div>
                       </div>
@@ -264,10 +263,10 @@
                         <h5 class="text-center mt-3">{{x.titulo}}</h5>
                         <h6 class="text-center mt-3">{{x.autor}}</h6>
                         <div class="footer mt-3">
-                          {% if x.status %}
-                            <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                          {% if x.status == Liberado %}
+                          <button type="button" href="../reserva_livros" class="page-link btn btn-primary w-100"><a href="../descricao">Reservar</a></button>
                           {% else %}
-                            <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                          <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
                           {% endif %}
                         </div>
                       </div>
@@ -308,10 +307,10 @@
                       <h5 class="text-center mt-3">{{x.titulo}}</h5>
                       <h6 class="text-center mt-3">{{x.autor}}</h6>
                       <div class="footer mt-3">
-                        {% if x.status %}
-                          <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                        {% if x.status == Liberado %}
+                        <button type="button" href="../reserva_livros" class="page-link btn btn-primary w-100"><a href="../descricao">Reservar</a></button>
                         {% else %}
-                          <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                        <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
                         {% endif %}
                       </div>
                     </div>
@@ -336,10 +335,10 @@
                         <h5 class="text-center mt-3">{{x.titulo}}</h5>
                         <h6 class="text-center mt-3">{{x.autor}}</h6>
                         <div class="footer mt-3">
-                          {% if x.status %}
-                            <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                          {% if x.status == Liberado %}
+                          <button type="button" href="../reserva_livros" class="page-link btn btn-primary w-100"><a href="../descricao">Reservar</a></button>
                           {% else %}
-                            <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                          <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
                           {% endif %}
                         </div>
                       </div>
@@ -380,10 +379,10 @@
                       <h5 class="text-center mt-3">{{x.titulo}}</h5>
                       <h6 class="text-center mt-3">{{x.autor}}</h6>
                       <div class="footer mt-3">
-                        {% if x.status %}
-                          <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                        {% if x.status == Liberado %}
+                        <button type="button" href="../reserva_livros" class="page-link btn btn-primary w-100"><a href="../descricao">Reservar</a></button>
                         {% else %}
-                          <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                        <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
                         {% endif %}
                       </div>
                     </div>
@@ -408,10 +407,10 @@
                         <h5 class="text-center mt-3">{{x.titulo}}</h5>
                         <h6 class="text-center mt-3">{{x.autor}}</h6>
                         <div class="footer mt-3">
-                          {% if x.status %}
-                            <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                          {% if x.status == Liberado %}
+                          <button type="button" href="../reserva_livros" class="page-link btn btn-primary w-100"><a href="../descricao">Reservar</a></button>
                           {% else %}
-                            <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                          <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
                           {% endif %}
                         </div>
                       </div>
@@ -452,10 +451,10 @@
                       <h5 class="text-center mt-3">{{x.titulo}}</h5>
                       <h6 class="text-center mt-3">{{x.autor}}</h6>
                       <div class="footer mt-3">
-                        {% if x.status %}
-                          <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                        {% if x.status == Liberado %}
+                        <button type="button" href="../reserva_livros" class="page-link btn btn-primary w-100"><a href="../descricao">Reservar</a></button>
                         {% else %}
-                          <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                        <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
                         {% endif %}
                       </div>
                     </div>
@@ -480,10 +479,10 @@
                         <h5 class="text-center mt-3">{{x.titulo}}</h5>
                         <h6 class="text-center mt-3">{{x.autor}}</h6>
                         <div class="footer mt-3">
-                          {% if x.status %}
-                            <button type="button" class="btn btn-primary w-100"><a href="../descricao"></a>Reservar</button>
+                          {% if x.status == Liberado %}
+                          <button type="button" href="../reserva_livros" class="page-link btn btn-primary w-100"><a href="../descricao">Reservar</a></button>
                           {% else %}
-                            <button type="button" class="btn btn-secondary w-100"><a href="../descricao"></a>Reservado</button>
+                          <button type="button" class="btn btn-secondary w-100"><a href=""></a>Reservado</button>
                           {% endif %}
                         </div>
                       </div>
