@@ -14,7 +14,7 @@ from datetime import date
 def index(request):
     form_email = LoginEmail()
     form_feedback = Feedback()
-    user= User.objects.all()
+    usuarios= Usuario.objects.all()
     return render(request,"index.html", {
         "form": form_email, 
         "formF": form_feedback,
@@ -45,21 +45,25 @@ def FAQs(request):
 
         })
 
+@login_required
 def funcionario(request):
     usuarios = Usuario.objects.all()
     livros = Livros.objects.all()
     return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
 
+@login_required
 def funcionario1(request):
     usuarios = Usuario.objects.all()
     livros = Livros.objects.all()
     return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
-    
+
+@login_required   
 def funcionario2(request):
     usuarios = Usuario.objects.all()
     livros = Livros.objects.all()
     return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
 
+@login_required
 def funcionario3(request):
     usuarios = Usuario.objects.all()
     livros = Livros.objects.all()
@@ -248,10 +252,11 @@ def login(request):
     if form.is_valid():
         email = form['email_form'].value()
         password = form['senha_form'].value()
+    user_temp = Usuario.objects.get(email= email)
 
     usuario = auth.authenticate(
         request,
-        username = email,
+        username = user_temp,
         password = password
     )
     if usuario is not None:
@@ -262,8 +267,8 @@ def login(request):
         messages.error(request, f' Erro ao realizar o login!')
         return redirect('index')
     
-    return render(request, 'index.html', {'form': form})
-    
+    return render(request, 'index.html', {'form': form}) 
+
 def logout(request):
     auth.logout(request)
     messages.success(request, 'Logout efetuado com sucesso!')
@@ -275,4 +280,3 @@ def feedback(request):
         bd.save()
         messages.success(request, f'feedback enviado com sucesso!')
         return redirect('index')
-
