@@ -37,7 +37,7 @@ def catalogo2(request):
 def FAQs(request):
     form_email = LoginEmail()
     form_feedback = Feedback()
-    return render(request,"index.html", {
+    return render(request,"FAQs.html", {
         "form": form_email, 
         "formF": form_feedback,
 
