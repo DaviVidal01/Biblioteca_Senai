@@ -125,6 +125,27 @@ class CadastrarUsuario(forms.Form):
         )
     )
 
+def clean_nome_form(self):
+        nome_form = self.cleaned_data.get('Nome')
+
+        if nome_form:
+            nome_form = nome_form.strip()
+            if ' ' in nome_form:
+                raise forms.ValidationError('Espaços não são permitidos nesse campo')
+            else:
+                return nome_form
+            
+def clean_senhaconfirmar_form(self):
+    senha_form = self.cleaned_data.get('senha_form')
+    senhaconfirmar_form = self.cleaned_data.get('senhaconfirmar_form')
+
+    if senha_form and senhaconfirmar_form:
+        if senha_form != senhaconfirmar_form:
+            raise forms.ValidationError('Senhas não são iguais')
+        else:
+            return senhaconfirmar_form
+
+
 class CadastrarLivros(forms.Form):
     titulo_form = forms.CharField(
         label='Titulo',
@@ -198,3 +219,4 @@ class ReservarLivros(forms.Form):
             }
         )
     )
+

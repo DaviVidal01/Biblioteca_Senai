@@ -10,9 +10,11 @@ from datetime import date
 # Create your views here.
 
 # ----------- Páginas
+@login_required
 def index(request):
     form_email = LoginEmail()
     form_feedback = Feedback()
+    user= User.objects.all()
     return render(request,"index.html", {
         "form": form_email, 
         "formF": form_feedback,
