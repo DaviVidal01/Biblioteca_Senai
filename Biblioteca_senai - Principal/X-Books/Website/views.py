@@ -10,10 +10,9 @@ from datetime import date
 # Create your views here.
 
 # ----------- Páginas
-@login_required
 def index(request):
-    form_email = LoginEmail()
     form_feedback = Feedback()
+    form_email = LoginEmail()
     usuarios= Usuario.objects.all()
     return render(request,"index.html", {
         "form": form_email, 
@@ -22,19 +21,20 @@ def index(request):
         })
     
 def livros(request):
+    genero = Genero.objects.all()
     livros = Livros.objects.all()
+    form_email = LoginEmail()
+    usuarios= Usuario.objects.all()
     form_feedback = Feedback
-    return render(request,"livros.html", {'livros': livros, "formF": form_feedback})
+    return render(request,"livros.html", { 'form':form_email ,'livros': livros, "formF": form_feedback, "genero": genero})
 
 def catalogo(request):
+    genero = Genero.objects.all()
     livros = Livros.objects.all()
+    form_email = LoginEmail()
+    usuarios= Usuario.objects.all()
     form_feedback = Feedback
-    return render(request,"catalogo.html", {'livros': livros, "formF": form_feedback})
-
-def catalogo2(request):
-    livros = Livros.objects.all()
-    form_feedback = Feedback
-    return render(request,"catalogo-2.html", {'livros': livros, "formF": form_feedback})
+    return render(request,"catalogo.html", {'form': form_email, 'livros': livros, "formF": form_feedback, "genero": genero})
 
 def FAQs(request):
     form_email = LoginEmail()
@@ -49,29 +49,7 @@ def FAQs(request):
 def funcionario(request):
     usuarios = Usuario.objects.all()
     livros = Livros.objects.all()
-    return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
-
-@login_required
-def funcionario1(request):
-    usuarios = Usuario.objects.all()
-    livros = Livros.objects.all()
-    return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
-
-@login_required   
-def funcionario2(request):
-    usuarios = Usuario.objects.all()
-    livros = Livros.objects.all()
-    return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
-
-@login_required
-def funcionario3(request):
-    usuarios = Usuario.objects.all()
-    livros = Livros.objects.all()
-    return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros})
-
-def descricao(request):
-    usuarios = Usuario.objects.all()
-    return render(request,"descricao.html", {'usuarios': usuarios})
+    return render(request,"admin.html", {'usuarios': usuarios, 'livros': livros, 'logout':logout})
 
 def cadastro(request):
     usuarios = Usuario.objects.all()
@@ -125,8 +103,8 @@ def status(request):
             data_Ret = form['data_Ret'].value(),
             data_Dev = form['data_Dev'].value(),
             status = form['status'].value(),
-            livro_id = 5,
-            usuario_id = 4,
+            livro_id = Livros.objects.get(pk=id),
+            usuario_id = Usuario.objects.get(pk=id),
             )
             messages.success(request, f'Status alterado com sucesso!')
             return redirect("index")
@@ -146,7 +124,7 @@ def cadastrarL(request):
             autor = form_Livros['autor_form'].value(),
             ano = form_Livros['ano_form'].value(),
             image = form_Livros['image_form'].value(),
-            genero_id = 1,
+            genero_id = request.POST.get('genero'),
             )
             messages.success(request, f'Livro registrado com sucesso!')
             
@@ -159,19 +137,25 @@ def cadastrarL(request):
 def deleteU(request, id):
     x = Usuario.objects.get(pk=id)
     x.delete()
+    messages.success(request, 'Usuário Deletado com Sucesso')
     return redirect('listarU')
 
 def listarU(request):
-    usuarios = Usuario.objects.all()
+    search_query = request.GET.get('search')
+    if search_query:
+        usuarios = Usuario.objects.filter(nome__icontains=search_query)
+    else:
+        usuarios = Usuario.objects.all()
     return render(request,"consulta_usuario.html",{"usuarios":usuarios})
 
 def adicionarU(request):
     Usuario.objects.create(nome=request.POST['nome'])
+    messages.success(request, 'Usuário adicionado com sucesso')
     return redirect('listarU')
 
 def editarU(request, id):
     usuarios = Usuario.objects.get(pk=id)
-    return render(request, "consulta_usuario.html", {"usuarios":usuarios})
+    return render(request, "Atualiza_usuario.html", {"usuarios":usuarios})
 
 def updateU(request, id):
     usuarios = Usuario.objects.get(pk=id)
@@ -180,6 +164,7 @@ def updateU(request, id):
     usuarios.telefone = request.POST['telefone']
     usuarios.email = request.POST['email']
     usuarios.save()
+    messages.success(request, 'Usuário Editado com Sucesso')
     return redirect('listarU')
     
 def cadastro_usuarios(request):
@@ -208,14 +193,20 @@ def atualiza_user(request):
 def deleteL(request, id):
     x = Livros.objects.get(pk=id)
     x.delete()
+    messages.success(request, 'Livro Deletado com Sucesso')
     return redirect('listarL')
 
 def adicionarL(request):
     Livros.objects.create(nome=request.POST['titulo'])
+    messages.success(request, 'Livro Adicionado com Sucesso')
     return redirect('listarL')
 
 def listarL(request):
-    livros = Livros.objects.all()
+    search_query = request.GET.get('search')
+    if search_query:
+        livros = Livros.objects.filter(titulo__icontains=search_query)
+    else:
+        livros = Livros.objects.all()
     return render(request,"consulta_livro.html",{"livros":livros})
 
 def editarL(request, id):
@@ -230,7 +221,9 @@ def updateL(request, id):
     livros.ano = request.POST['ano']
     livros.destaque = request.POST['destaque']
     livros.image = request.POST['image']
+    livros.genero = request.POST.get('genero')
     livros.save()
+    messages.success(request, 'Livro Editado com Sucesso')
     return redirect('listarL')
 
 def consulta_book(request):
@@ -252,17 +245,19 @@ def login(request):
     if form.is_valid():
         email = form['email_form'].value()
         password = form['senha_form'].value()
-    user_temp = Usuario.objects.get(email= email)
+        user_temp = User.objects.get(email= email)
 
-    usuario = auth.authenticate(
-        request,
-        username = user_temp,
-        password = password
-    )
-    if usuario is not None:
-        auth.login(request,usuario)
-        messages.success(request, f'{email}Cadastrar com sucesso!')
-        return redirect('index')
+        usuario = auth.authenticate(
+            request,
+            username = user_temp,
+            password = password
+        )
+        if usuario is not None:
+            auth.login(request,usuario)
+            messages.success(request, 'Login efetuado com sucesso!')
+            if usuario.username == "admin":
+                return redirect('funcionario')
+            return redirect('index')
     else:
         messages.error(request, f' Erro ao realizar o login!')
         return redirect('index')

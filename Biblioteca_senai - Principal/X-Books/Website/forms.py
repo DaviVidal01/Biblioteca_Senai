@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django import forms
+from .models import Genero
 
 class LoginEmail(forms.Form):
     email_form = forms.EmailField(
@@ -187,6 +188,10 @@ class CadastrarLivros(forms.Form):
                 'class' : 'form-control'
             }
         )
+    )
+    genero = forms.ModelChoiceField(
+        queryset= Genero.objects.all(),
+        label='Gênero:'
     )
 
 class ReservarLivros(forms.Form):
